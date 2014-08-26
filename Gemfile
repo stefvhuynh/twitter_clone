@@ -8,10 +8,23 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
-gem 'debugger', group: [:development, :test]
+
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'spring', group: :development
+
+group :development, :test do
+  gem 'debugger'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'guard-rspec'
+  gem 'capybara'
+  gem 'faker'
+  gem 'launchy'
+end
 
 group :development do
   gem 'pry-rails'
