@@ -7,7 +7,7 @@ FactoryGirl.define do
 
     factory :user_with_tweets do
       ignore do
-        tweets_count 50
+        tweets_count { (rand * 50).round }
       end
 
       after(:create) do |user_with_tweets, evaluator|

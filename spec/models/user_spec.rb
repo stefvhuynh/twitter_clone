@@ -45,12 +45,11 @@ RSpec.describe User, :type => :model do
   end
 
   describe 'association' do
-    describe 'with tweets' do
-      subject(:user) { FactoryGirl.create(:user_with_tweets) }
+    subject(:user) { FactoryGirl.create(:user) }
 
+    describe 'with tweets' do
       it 'should have many tweets' do
-        expect(user.tweets).not_to be_nil
-        expect(user.tweets.count).to be > 0
+        expect(user).to respond_to(:tweets)
       end
     end
   end
