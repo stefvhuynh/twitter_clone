@@ -12,7 +12,7 @@ RSpec.describe User, :type => :model do
     end
 
     it 'requires a unique email' do
-      FactoryGirl.build(:user, email: 'me@example.com')
+      FactoryGirl.create(:user, email: 'me@example.com')
 
       expect(
         FactoryGirl.build(:user, email: 'me@example.com')
