@@ -34,12 +34,6 @@ class User < ActiveRecord::Base
 
   private
 
-  # def generate_default_username
-  #   if self.name
-  #     self.username = self.name.downcase.strip.gsub(/\s/, '_')
-  #   end
-  # end
-
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
