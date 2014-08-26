@@ -2,17 +2,18 @@
 <html>
 <head>
   <title>TwitterClone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all',
+    'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application',
+    'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <% if flash[:errors] %>
-    <%= render partial: 'layouts/errors',
-      locals: { errors: flash[:errors] } %>
-  <% end %>
+  <%= render partial: 'layouts/header' if signed_in? %>
+  <%= render partial: 'layouts/errors',
+    locals: { errors: flash[:errors] } if flash[:errors] %>
 
   <%= yield %>
-
 </body>
 </html>

@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_filter :require_signed_in!
 
   def show
   end
@@ -11,7 +12,7 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.build(tweet_params)
 
     if @tweet.save
-      # redirect_to ...
+      redirect_to root_url
     else
       render :new
     end

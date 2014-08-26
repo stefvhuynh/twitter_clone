@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :require_signed_out!
 
   def new
     render :new
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
       render :new
     else
       sign_in!(user)
-      # redirect_to ...
+      redirect_to root_url
     end
   end
 

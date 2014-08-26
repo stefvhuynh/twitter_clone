@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_signed_in!, except: [:new, :create]
+  before_filter :require_signed_out!, only: [:new, :create]
 
   def index
   end
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in!(@user)
-      # redirect_to ...
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
