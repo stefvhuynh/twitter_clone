@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :tweets
+
   validates :name, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates(
