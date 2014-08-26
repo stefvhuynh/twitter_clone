@@ -26,14 +26,14 @@ RSpec.describe User, :type => :model do
         FactoryGirl.build(:user, password: '12345')
       ).not_to be_valid
     end
+
+    it 'requires a username' do
+      expect(FactoryGirl.build(:user, username: '')).not_to be_valid
+    end
   end
 
   describe 'auto-generated user attributes' do
     subject(:user) { FactoryGirl.create(:user) }
-
-    it 'has a username' do
-      expect(user.username).not_to be_nil
-    end
 
     it 'has a password digest' do
       expect(user.password_digest).not_to be_nil

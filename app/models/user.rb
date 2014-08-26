@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
   after_initialize :ensure_session_token
+  # before_validation :generate_default_username, on: :create
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
@@ -30,6 +31,12 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  # def generate_default_username
+  #   if self.name
+  #     self.username = self.name.downcase.strip.gsub(/\s/, '_')
+  #   end
+  # end
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
