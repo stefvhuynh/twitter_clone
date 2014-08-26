@@ -54,16 +54,22 @@ RSpec.describe User, :type => :model do
     end
 
     describe 'with follows' do
-      it 'should have many follows' do
-        expect(user).to respond_to(:follows)
+      it 'should have many follower follows' do
+        expect(user).to respond_to(:follower_follows)
+      end
+
+      it 'should have many followed follows' do
+        expect(user).to respond_to(:followed_follows)
       end
     end
 
     describe 'with other users' do
       it 'should have many followers' do
+        expect(user).to respond_to(:followers)
       end
 
-      it 'should have many followed users' do
+      it 'should have many followeds' do
+        expect(user).to respond_to(:followeds)
       end
     end
   end

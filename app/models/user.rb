@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   has_many :tweets
+  has_many :followed_follows, foreign_key: :followed_id
+  has_many :follower_follows, foreign_key: :follower_id
+
+  has_many :followers, through: :followed_follows, source: :follower
+  has_many :followeds, through: :follower_follows, source: :followed
 
   validates :name, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -15,7 +20,6 @@ class User < ActiveRecord::Base
 
   attr_reader :password
   after_initialize :ensure_session_token
-  # before_validation :generate_default_username, on: :create
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
