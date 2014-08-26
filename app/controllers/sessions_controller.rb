@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      flash[:errors] = [
+      flash.now[:errors] = [
         "The username and password you entered did not match
         our records. Please double-check and try again."
       ]

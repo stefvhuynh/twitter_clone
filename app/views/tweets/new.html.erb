@@ -1,0 +1,7 @@
+<h1>Compose new Tweet</h1>
+
+<form action='<%= tweets_url %>' method='POST'>
+  <%= authenticity_token %>
+  <textarea name='tweet[body]'></textarea>
+  <button>Tweet</button>
+</form>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  resources :users
+
+  shallow do
+    resources :users do
+      resources :tweets, except: [:index, :edit, :update]
+    end
+  end
 end

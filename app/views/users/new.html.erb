@@ -3,6 +3,8 @@ Have an account? <a href='<%= new_session_url %>'>Sign in &#x25BE;</a>
 <h1>Join Twitter today.</h1>
 
 <form action='<%= users_url %>' method='POST'>
+  <%= authenticity_token %>
+
   <label for='sign-up-name'>Full name</label>
   <input id='sign-up-name' type='text' name='user[name]'>
 
