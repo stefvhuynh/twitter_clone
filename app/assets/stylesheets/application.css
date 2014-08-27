@@ -53,6 +53,7 @@ h1 {
 }
 
 input {
+  display: block;
   border-radius: 3px;
   padding: 0 5px;
   border: 1px solid #ddd;
@@ -63,6 +64,10 @@ input {
 
 input:focus {
   border: 1px solid #3ad;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 a {
@@ -89,6 +94,10 @@ a:hover {
   border-radius: 5px;
   background: #5ae;
   border: 1px solid #27c;
+}
+
+.blue-button:hover {
+  background: #49d;
 }
 
 .blue-button:focus {

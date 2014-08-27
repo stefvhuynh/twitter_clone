@@ -1,15 +1,27 @@
 <h1>Account</h1>
 <h4>Change your basic account and language settings.</h4>
 
-<form action='<%= user_url(current_user) %>' method='POST'>
+<form action='<%= user_url(current_user) %>'
+  method='POST'
+  enctype='multipart/form-data'>
+
   <input type='hidden' name='_method' value='PATCH'>
   <%= authenticity_token %>
 
   <label for='edit-username'>Username</label>
-  <input type='text' name='user[username]' value='<%= current_user.username %>'>
+  <input id='edit-username'
+    type='text'
+    name='user[username]'
+    value='<%= current_user.username %>'>
 
   <label for='edit-email'>Email</label>
-  <input type='text' name='user[email]' value='<%= current_user.email %>'>
+  <input id='edit-email'
+    type='text'
+    name='user[email]'
+    value='<%= current_user.email %>'>
+
+  <label for='edit-avatar'>Photo</label>
+  <input id='edit-avatar' type='file' name='user[avatar]'>
 
   <button class='blue-button'>Save changes</button>
 </form>
