@@ -1,3 +1,38 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign-in-footer {
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  margin: 0 15px;
+  padding: 13px 75px;
+  font-size: 13px;
+  background: rgb(245, 245, 245);
+}
+
+.sign-in-footer > div {
+  color: #99a;
+  padding: 5px 0;
+}
+
+.sign-in-footer > div > a {
+  color: #58c;
+}
+
+.sign-in-textbox {
+  border: 1px solid #ddd;
+  height: 35px;
+  width: 290px;
+  margin: 15px 0 15px 0;
+}
+
+.sign-in-textbox:focus {
+  border: 1px solid #5bf;
+}
+
+.form-main .blue-button {
+ margin-top: 20px; 
+}
+

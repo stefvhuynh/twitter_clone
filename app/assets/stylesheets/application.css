@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+
+/* Reset */
+
+html, body, main, section, article, aside, div, 
+span, p, h1, h2, h3, h4, h5, big, small, ul, li, 
+a, input, button, img, footer, header, nav {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  background: transparent;
+  box-sizing: content-box;
+  outline: none;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+/* Utilities */
+
+.clear-fix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* General */
+
+body {
+  background: white;
+  font-family: tahoma;
+  color: black;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+input {
+  border-radius: 3px;
+  padding: 0 5px;
+  display: block;
+}
+
+.form-main {
+  border: 1px solid #ddd;
+  border-radius: 5px 5px 0 0;
+  padding: 30px 80px;
+  margin: 10px 15px 0 15px;
+}
+
+.blue-button {
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background: #5ae;
+  border: 1px solid #27c;
+}
+
+.blue-button:focus {
+  border: none;
+}
+
+/* Headers */
+
+.signed-out-header {
+  height: 46px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 0 #eee;
+  padding: 0 30px;
+}
+
+.signed-out-header > .logo {
+  float: left;
+  padding: 13px 0;
+}
+
+.signed-out-header > .opposite-logo {
+  float: right;
+  padding: 15px 0;
+  font-size: 13px;
+}
+
+

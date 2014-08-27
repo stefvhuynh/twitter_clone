@@ -1,10 +1,32 @@
-<h1>Sign in to Twitter</h1>
+<main class='form-main'>
 
-<form action='<%= session_url %>' method='POST'>
-  <%= authenticity_token %>
-  <input type='text' name='user[email]' placeholder='Email'>
-  <input type='password' name='user[password]' placeholder='Password'>
-  <button>Sign in</button>
-</form>
+  <h1>Sign in to Twitter</h1>
 
-New to Twitter? <a href='<%= new_user_url %>'>Sign up now &raquo;</a>
+  <form action='<%= session_url %>' method='POST'>
+    <%= authenticity_token %>
+    <input class='sign-in-textbox' 
+      type='text' 
+      name='user[email]' 
+      placeholder='Email'>
+    
+    <input class='sign-in-textbox' 
+      type='password' 
+      name='user[password]' 
+      placeholder='Password'>
+    
+    <button class='blue-button'>Sign in</button>
+  </form>
+
+</main>
+
+<footer class='sign-in-footer'>
+  <div>
+    New to Twitter?
+    <a href='<%= new_user_url %>'> Sign up now &raquo;</a>
+  </div>
+  <div>
+    Already using Twitter via text message? 
+    <a href='#'> Activate your account &raquo;</a>
+  </div>
+</footer>
+
