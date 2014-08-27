@@ -7,14 +7,4 @@ class PagesController < ApplicationController
     render :home
   end
 
-  def following
-    @followeds = current_user.followeds
-    render :following
-  end
-
-  def followers
-    @followers = current_user.followers
-    render :followers
-  end
-
 end

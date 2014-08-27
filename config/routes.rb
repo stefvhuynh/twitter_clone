@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   shallow do
     resources :users do
       resources :tweets, except: [:index, :edit, :update]
+      get 'following', to: 'users#following'
+      get 'followers', to: 'users#followers'
 
       post 'follow', on: :member
       delete 'unfollow', on: :member
@@ -11,6 +13,4 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
-  get 'following', to: 'pages#following'
-  get 'followers', to: 'pages#followers'
 end
