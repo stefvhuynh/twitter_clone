@@ -5,6 +5,6 @@
 
 <ul>
   <% @tweets.each do |tweet| %>
-    <li><%= tweet.body %></li>
+    <li><%= render partial: 'tweets/preview', locals: { tweet: tweet } %></li>
   <% end %>
 </ul>

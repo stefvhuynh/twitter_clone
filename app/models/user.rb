@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :followeds, through: :follower_follows, source: :followed
   has_many :followers, through: :followed_follows, source: :follower
+  has_many :followed_tweets, through: :followeds, source: :tweets
 
   validates :name, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
