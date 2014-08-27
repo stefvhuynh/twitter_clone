@@ -1,6 +1,6 @@
 class Mention < ActiveRecord::Base
-  belongs_to :tweet
-  belongs_to :user
+  belongs_to :tweet, inverse_of: :mentions
+  belongs_to :user, inverse_of: :mentions
 
-  validates :tweet_id, :user_id, presence: true
+  validates :tweet, :user_id, presence: true
 end
