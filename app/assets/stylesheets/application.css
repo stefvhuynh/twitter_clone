@@ -175,5 +175,17 @@ a:hover {
   border-radius: 10px;
 }
 
+/* Tweets */
+
+.tweets-list {
+  width: 550px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.tweet-preview {
+  border-top: 1px solid #ddd;
+  display: block;
+}
 
 
