@@ -7,6 +7,27 @@ User.create({
   username: 'charlie_brown'
 })
 
+User.create({
+  name: 'Sally Brown',
+  email: 'sally@brown.com',
+  password: '123456',
+  username: 'sal'
+})
+
+User.create({
+  name: 'Lucy van Pelt',
+  email: 'lucy@vanpelt.com',
+  password: '123456',
+  username: 'lucy'
+})
+
+User.create({
+  name: 'Linus van Pelt',
+  email: 'linus@vanpelt.com',
+  password: '123456',
+  username: 'linusvanpelt'
+})
+
 10.times do
   User.create({
     name: Faker::Name.name,

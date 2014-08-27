@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
+  get 'following', to: 'pages#following'
+  get 'followers', to: 'pages#followers'
 end
