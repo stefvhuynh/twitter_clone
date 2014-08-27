@@ -5,7 +5,7 @@
   <li><a href='<%= user_url(current_user) %>'>Me</a></li>
   <li><a href='<%= users_url %>'>Search</a></li>
   <li><a href='#'>Messages</a></li>
-  <!-- <li><a href='#'>Settings</a></li> -->
+  <li><a href='<%= edit_user_url(current_user) %>'>Settings</a></li>
   <li>
     <form action='<%= session_url %>' method='POST'>
       <input type='hidden' name='_method' value='DELETE'>

@@ -19,10 +19,9 @@
 }
 
 .sign-in-textbox {
-  border: 1px solid #ddd;
   height: 35px;
   width: 280px;
-  margin: 15px 0 15px 0;
+  display: block;
 }
 
 .sign-in-textbox:focus {

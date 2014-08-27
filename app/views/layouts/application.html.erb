@@ -10,10 +10,11 @@
 </head>
 
 <body>
-
   <%= render partial: 'layouts/header' if signed_in? %>
   <%= render partial: 'layouts/errors',
     locals: { errors: flash[:errors] } if flash[:errors] %>
+  <%= render partial: 'layouts/notices',
+    locals: { notices: flash[:notices] } if flash[:notices] %>
 
   <%= yield %>
 </body>

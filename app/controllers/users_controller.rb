@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_signed_in!, except: [:new, :create]
+  before_filter :require_signed_in!, except: [:show, :new, :create]
   before_filter :require_signed_out!, only: [:new, :create]
 
   def index
@@ -31,44 +31,52 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render :edit
   end
 
   def update
+    if current_user.update(user_params)
+      flash.now[:notices] = ['Thanks, your settings have been saved.']
+    else
+      flash.now[:errors] = current_user.errors.full_messages
+    end
+
+    render :edit
   end
 
   def destroy
   end
-  
+
   def follow
     follow = Follow.new(
       followed_id: params[:id],
       follower_id: current_user.id
     )
-        
+
     unless follow.save
-      flash[:errors] = follow.errors.full_messages 
+      flash[:errors] = follow.errors.full_messages
     end
-    
+
     redirect_to user_url(params[:id])
   end
-  
+
   def unfollow
     follow = Follow.where(
-      followed_id: params[:id], 
-      follower_id: current_user.id 
+      followed_id: params[:id],
+      follower_id: current_user.id
     ).first
-    
+
     unless follow.destroy
       flash[:errors] = follow.errors.full_messages
     end
-    
+
     redirect_to user_url(params[:id])
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :username)
   end
 
 end

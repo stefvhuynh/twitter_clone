@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to root_url
     else
+      flash.now[:errors] = @tweet.errors.full_messages
       render :new
     end
   end
