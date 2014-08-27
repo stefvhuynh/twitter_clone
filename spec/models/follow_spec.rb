@@ -14,6 +14,15 @@ RSpec.describe Follow, :type => :model do
         FactoryGirl.build(:follow, follower_id: '')
       ).not_to be_valid
     end
+    
+    it 'requires a unique followed-follower id combination' do
+      FactoryGirl.create(:follow)
+      expect(FactoryGirl.build(:follow)).not_to be_valid
+    end
+    
+    it 'does not allow the folowed and the follower to be the same user' do
+      expect(FactoryGirl.build(:follow, follower_id: 1)).not_to be_valid
+    end
   end
 
   describe 'association' do
