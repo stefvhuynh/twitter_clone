@@ -1,21 +1,28 @@
-Have an account? <a href='<%= new_session_url %>'>Sign in &#x25BE;</a>
+<header class='signed-out-header clear-fix'>
+  <div class='logo'>logo</div>
+  <div class='opposite-logo'>
+    <a href='<%= new_session_url %>'>Have an account? <strong>Sign in &#x25BE;</strong></a>
+  </div>
+</header>
 
-<h1>Join Twitter today.</h1>
+<main class='form-main'>
+  <h1>Join Twitter today.</h1>
 
-<form action='<%= users_url %>' method='POST'>
-  <%= authenticity_token %>
+  <form action='<%= users_url %>' method='POST'>
+    <%= authenticity_token %>
 
-  <label for='sign-up-name'>Full name</label>
-  <input id='sign-up-name' type='text' name='user[name]'>
+    <label for='sign-up-name'>Full name</label>
+    <input id='sign-up-name' type='text' name='user[name]'>
 
-  <label for='sign-up-email'>Email address</label>
-  <input id='sign-up-email' type='text' name='user[email]'>
+    <label for='sign-up-email'>Email address</label>
+    <input id='sign-up-email' type='text' name='user[email]'>
 
-  <label for='sign-up-password'>Create a password</label>
-  <input id='sign-up-password' type='text' name='user[password]'>
+    <label for='sign-up-password'>Create a password</label>
+    <input id='sign-up-password' type='text' name='user[password]'>
 
-  <label for='sign-up-username'>Choose your username</label>
-  <input id='sign-up-username' type='text' name='user[username]'>
+    <label for='sign-up-username'>Choose your username</label>
+    <input id='sign-up-username' type='text' name='user[username]'>
 
-  <button>Create my account</button>
-</form>
+    <button>Create my account</button>
+  </form>
+</main>

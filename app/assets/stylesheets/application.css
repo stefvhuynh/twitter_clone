@@ -58,6 +58,14 @@ input {
   display: block;
 }
 
+a {
+  color: #58c;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .form-main {
   border: 1px solid #ddd;
   border-bottom: none;

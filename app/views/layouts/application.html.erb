@@ -10,12 +10,8 @@
 </head>
 
 <body>
-  <% if signed_in? %>
-    <%= render partial: 'layouts/header' %>
-  <% else %>
-    <%= render partial: 'layouts/signed_out_header' %>
-  <% end %>
-  
+
+  <%= render partial: 'layouts/header' if signed_in? %>
   <%= render partial: 'layouts/errors',
     locals: { errors: flash[:errors] } if flash[:errors] %>
 
