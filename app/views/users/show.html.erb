@@ -1,8 +1,4 @@
-<% if @user.avatar.exists? %>
-  <img class="show-avatar" src="<%= @user.avatar.url %>">
-<% else %>
-  <img class="show-avatar" src="<%= asset_url('default_avatar.png') %>">
-<% end %>
+<%= render partial: 'layouts/avatar', locals: { user: @user } %>
 
 <h2><%= @user.name %></h2>
 <small>@<%= @user.username %></small>
@@ -18,8 +14,4 @@
 
 <h3>Tweets</h3>
 
-<ul>
-  <% @user.tweets.each do |tweet| %>
-    <li><%= render partial: 'tweets/preview', locals: { tweet: tweet } %></li>
-  <% end %>
-</ul>
+<%= render partial: 'tweets/tweets', locals: { tweets: @user.tweets } %>

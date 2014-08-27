@@ -2,6 +2,8 @@ class TweetsController < ApplicationController
   before_filter :require_signed_in!
 
   def show
+    @tweet = Tweet.find(params[:id])
+    render :show
   end
 
   def new

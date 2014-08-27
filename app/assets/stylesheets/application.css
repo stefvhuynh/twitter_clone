@@ -130,18 +130,47 @@ a:hover {
   font-size: 13px;
 }
 
-/* Avatars */
-
-.home-avatar {
-  height: 70px;
-  width: 70px;
-  border: 5px solid #fff;
-  border-radius: 10px;
+.signed-in-header {
+  height: 46px;
+  margin-bottom: 10px;
+  background: white;
+  box-shadow: 0 2px 0 #5C859B;
 }
 
-.show-avatar {
-  height: 200px;
-  width: 200px;
+.signed-in-header > nav {
+  width: 850px;
+  margin: auto;
+}
+
+.signed-in-header > nav > ul > li {
+  padding: 13px 5px;
+}
+
+.signed-in-header > nav > .left {
+  float: left;
+}
+
+.signed-in-header > nav > .left > li {
+  float: left;
+}
+
+.signed-in-header > nav > .center {
+  float: left;
+}
+
+.signed-in-header > nav > .right {
+  float: right;
+}
+
+.signed-in-header > nav > .right > li {
+  float: left;
+}
+
+/* Avatars */
+
+.avatar {
+  height: 70px;
+  width: 70px;
   border: 5px solid #fff;
   border-radius: 10px;
 }

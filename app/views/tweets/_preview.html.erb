@@ -1,3 +1,5 @@
 <h3><a href="<%= user_url(tweet.user) %>">@<%= tweet.user.username %></a></h3>
 <small><%= tweet.created_at %></small>
-<p><%= tweet.body %></p>
+<p>
+  <a class='tweet-body' href="<%= tweet_url(tweet) %>"><%= tweet.body %></a>
+</p>

@@ -1,0 +1,5 @@
+<% if user.avatar.exists? %>
+  <img class="avatar" src="<%= user.avatar.url %>">
+<% else %>
+  <img class="avatar" src="<%= asset_url('default_avatar.png') %>">
+<% end %>

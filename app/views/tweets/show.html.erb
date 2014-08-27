@@ -1,0 +1,8 @@
+<%= render partial: 'layouts/avatar', locals: { user: @tweet.user } %>
+
+<h5><a href="<%= user_url(@tweet.user) %>"><%= @tweet.user.name %></a></h5>
+<small>@<%= @tweet.user.username %></small>
+
+<p><%= @tweet.body %></p>
+
+<small><%= @tweet.created_at %></small>
