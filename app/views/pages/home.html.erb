@@ -1,5 +1,14 @@
-<h2><%= current_user.name %></h2>
-<small>@<%= current_user.username %></small>
+<h2>
+  <a href='<%= user_url(current_user) %>'>
+    <%= current_user.name %>
+  </a>
+</h2>
+
+<small>
+  <a href='<%= user_url(current_user) %>'>
+    @<%= current_user.username %>
+  </a>
+</small>
 
 <h1>Tweets</h1>
 

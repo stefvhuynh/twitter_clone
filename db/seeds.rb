@@ -1,5 +1,12 @@
 require 'faker'
 
+User.create({
+  name: 'Charlie Brown',
+  email: 'charlie@brown.com',
+  password: '123456',
+  username: 'charlie_brown'
+})
+
 10.times do
   User.create({ 
     name: Faker::Name.name, 
