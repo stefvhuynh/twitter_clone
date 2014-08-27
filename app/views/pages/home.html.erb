@@ -1,15 +1,11 @@
 <%= render partial: 'layouts/avatar', locals: { user: current_user } %>
 
 <h2>
-  <a href="<%= user_url(current_user) %>">
-    <%= current_user.name %>
-  </a>
+  <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
 </h2>
 
 <small>
-  <a href="<%= user_url(current_user) %>">
-    @<%= current_user.username %>
-  </a>
+  <a href="<%= user_url(current_user) %>">@<%= current_user.username %></a>
 </small>
 
 <h1>Tweets</h1>

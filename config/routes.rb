@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
+  get 'mentions', to: 'pages#mentions'
 end

@@ -81,7 +81,7 @@ RSpec.describe User, :type => :model do
       end
 
       it 'should have many tweet mentions' do
-        expect(user).to respond_to(:tweet_mentions)
+        expect(user).to respond_to(:mentioned_tweets)
       end
     end
   end

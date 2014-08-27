@@ -7,4 +7,9 @@ class PagesController < ApplicationController
     render :home
   end
 
+  def mentions
+    @mentioned_tweets = current_user.mentioned_tweets.order('created_at DESC')
+    render :mentions
+  end
+
 end
