@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @tweets = current_user.tweets + current_user.followed_tweets
-    @tweets.sort_by! { |key| key['created_at'] }
+    @tweets.sort_by! { |tweet| Time.now - tweet.created_at }
     render :home
   end
 
