@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   shallow do
     resources :users do
       resources :tweets, except: [:index, :edit, :update]
+      
+      post 'follow', on: :member
+      delete 'unfollow', on: :member
     end
   end
 

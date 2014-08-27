@@ -38,6 +38,19 @@ class UsersController < ApplicationController
 
   def destroy
   end
+  
+  def follow
+    follow = Follow.new({
+      followed_id: params[:id],
+      follower_id: current_user.id
+    })
+        
+    unless follow.save
+      flash[:errors] = follow.errors.full_messages 
+    end
+    
+    redirect_to user_url(params[:id])
+  end
 
   private
 

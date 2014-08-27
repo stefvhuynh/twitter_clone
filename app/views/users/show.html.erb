@@ -4,9 +4,7 @@
 <% if @user == current_user %>
   <a href='<%= edit_user_url(current_user) %>'>Edit profile</a>
 <% else %>
-  <form action='' method='POST'>
-    <button>Follow</button>
-  </form>
+  <%= render partial: 'users/follow_button', locals: { user: @user } %>
 <% end %>
 
 <h3>Tweets</h3>

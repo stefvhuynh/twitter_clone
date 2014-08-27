@@ -1,0 +1,12 @@
+<% if current_user.followeds.include?(user) %>
+  <form action='<%= unfollow_user_url(user) %>' method='POST'>
+    <input type='hidden' name='_method' value='DELETE'>
+    <%= authenticity_token %>
+    <button>Unfollow</button>
+  </form>
+<% else %>
+  <form action='<%= follow_user_url(user) %>' method='POST'>
+    <%= authenticity_token %>
+    <button>Follow</button>
+  </form>
+<% end %>
