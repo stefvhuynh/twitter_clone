@@ -16,8 +16,8 @@
 
 /* Reset */
 
-html, body, main, section, article, aside, div, 
-span, p, h1, h2, h3, h4, h5, big, small, ul, li, 
+html, body, main, section, article, aside, div,
+span, p, h1, h2, h3, h4, h5, big, small, ul, li,
 a, input, button, img, footer, header, nav {
   border: 0;
   margin: 0;
@@ -70,8 +70,9 @@ a:hover {
   border: 1px solid #ddd;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
-  padding: 30px 80px 20px 80px;
-  margin: 10px 15px 0 15px;
+  padding: 30px 120px 20px 120px;
+  margin: auto;
+  width: 610px;
 }
 
 .blue-button {
@@ -93,15 +94,21 @@ a:hover {
   height: 46px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 1px 0 #eee;
-  padding: 0 30px;
+  margin-bottom: 10px;
 }
 
-.signed-out-header > .logo {
+.signed-out-header > nav {
+  padding: 0 15px;
+  margin: auto;
+  width: 820px;
+}
+
+.signed-out-header > nav > .logo {
   float: left;
   padding: 13px 0;
 }
 
-.signed-out-header > .opposite-logo {
+.signed-out-header > nav > .opposite-logo {
   float: right;
   padding: 15px 0;
   font-size: 13px;
