@@ -1,39 +1,39 @@
-<header class='signed-out-header'>
-  <nav class='clear-fix'>
-    <div class='logo'>logo</div>
-    <div class='opposite-logo'>Language: English &#x25BE;</div>
+<header class="signed-out-header">
+  <nav class="clear-fix">
+    <div class="logo">logo</div>
+    <div class="opposite-logo">Language: English &#x25BE;</div>
   </nav>
 </header>
 
-<main class='form-main'>
+<main class="form-main">
 
   <h1>Sign in to Twitter</h1>
 
-  <form action='<%= session_url %>' method='POST'>
+  <form action="<%= session_url %>" method="POST">
     <%= authenticity_token %>
-    <input class='sign-in-textbox'
-      type='text'
-      name='user[email]'
-      placeholder='Email'>
+    <input class="sign-in-textbox"
+      type="text"
+      name="user[email]"
+      placeholder="Email">
 
-    <input class='sign-in-textbox'
-      type='password'
-      name='user[password]'
-      placeholder='Password'>
+    <input class="sign-in-textbox"
+      type="password"
+      name="user[password]"
+      placeholder="Password">
 
-    <button class='blue-button'>Sign in</button>
+    <button class="blue-button">Sign in</button>
   </form>
 
 </main>
 
-<footer class='sign-in-footer'>
+<footer class="sign-in-footer">
   <div>
     New to Twitter?
-    <a href='<%= new_user_url %>'> Sign up now &raquo;</a>
+    <a href="<%= new_user_url %>"> Sign up now &raquo;</a>
   </div>
   <div>
     Already using Twitter via text message?
-    <a href='#'> Activate your account &raquo;</a>
+    <a href="#"> Activate your account &raquo;</a>
   </div>
 </footer>
 

@@ -130,4 +130,21 @@ a:hover {
   font-size: 13px;
 }
 
+/* Avatars */
+
+.home-avatar {
+  height: 70px;
+  width: 70px;
+  border: 5px solid #fff;
+  border-radius: 10px;
+}
+
+.show-avatar {
+  height: 200px;
+  width: 200px;
+  border: 5px solid #fff;
+  border-radius: 10px;
+}
+
+
 

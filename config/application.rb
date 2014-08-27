@@ -18,5 +18,17 @@ module TwitterClone
         :request_specs => true
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_protocol => 'http',
+      :url =>':s3_domain_url',
+      :path => "images/:class/:id.:style.:extension",
+      :s3_credentials => {
+        :bucket => ENV['AWS_BUCKET'],
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
+    }
   end
 end

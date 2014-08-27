@@ -1,11 +1,17 @@
+<% if current_user.avatar.exists? %>
+  <img class="home-avatar" src="<%= current_user.avatar.url %>">
+<% else %>
+  <img class="home-avatar" src="<%= asset_url('default_avatar.png') %>">
+<% end %>
+
 <h2>
-  <a href='<%= user_url(current_user) %>'>
+  <a href="<%= user_url(current_user) %>">
     <%= current_user.name %>
   </a>
 </h2>
 
 <small>
-  <a href='<%= user_url(current_user) %>'>
+  <a href="<%= user_url(current_user) %>">
     @<%= current_user.username %>
   </a>
 </small>

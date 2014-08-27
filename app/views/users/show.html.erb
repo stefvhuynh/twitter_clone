@@ -1,14 +1,14 @@
-<% unless @user.avatar.url == '/avatars/original/missing.png' %>
-  <img src='<%= @user.avatar.url %>'>
+<% if @user.avatar.exists? %>
+  <img class="show-avatar" src="<%= @user.avatar.url %>">
 <% else %>
-  <img src='<%= asset_url('default_avatar.png') %>'>
+  <img class="show-avatar" src="<%= asset_url('default_avatar.png') %>">
 <% end %>
 
 <h2><%= @user.name %></h2>
 <small>@<%= @user.username %></small>
 
 <% if @user == current_user %>
-  <a href='<%= edit_user_url(current_user) %>'>Edit profile</a>
+  <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
 <% else %>
   <%= render partial: 'users/follow_button', locals: { user: @user } %>
 <% end %>
