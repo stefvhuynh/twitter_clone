@@ -1,4 +1,8 @@
-<img src='<%= @user.avatar.url %>'>
+<% unless @user.avatar.url == '/avatars/original/missing.png' %>
+  <img src='<%= @user.avatar.url %>'>
+<% else %>
+  <img src='<%= asset_url('default_avatar.png') %>'>
+<% end %>
 
 <h2><%= @user.name %></h2>
 <small>@<%= @user.username %></small>
