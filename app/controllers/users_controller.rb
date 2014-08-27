@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_filter :require_signed_out!, only: [:new, :create]
 
   def index
+    # Will refine based on search criteria provided by the user
+    @users = User.all
+    render :index
   end
 
   def show
