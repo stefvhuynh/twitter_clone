@@ -21,9 +21,19 @@ RSpec.describe Tweet, :type => :model do
   describe 'association' do
     subject(:tweet) { FactoryGirl.create(:tweet) }
 
-    describe 'with user' do
+    describe 'with users' do
       it 'should belong to a user' do
         expect(tweet).to respond_to(:user)
+      end
+    end
+
+    describe 'with mentions' do
+      it 'should have many mentions' do
+        expect(tweet).to respond_to(:mentions)
+      end
+
+      it 'should have many mentioned users' do
+        expect(tweet).to respond_to(:mentioned_users)
       end
     end
   end

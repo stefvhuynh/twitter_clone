@@ -61,9 +61,7 @@ RSpec.describe User, :type => :model do
       it 'should have many followed follows' do
         expect(user).to respond_to(:followed_follows)
       end
-    end
 
-    describe 'with other users' do
       it 'should have many followers' do
         expect(user).to respond_to(:followers)
       end
@@ -71,11 +69,19 @@ RSpec.describe User, :type => :model do
       it 'should have many followeds' do
         expect(user).to respond_to(:followeds)
       end
-    end
-    
-    describe 'with other user tweets' do
+
       it 'should have many followed user tweets' do
         expect(user).to respond_to(:followed_tweets)
+      end
+    end
+
+    describe 'with mentions' do
+      it 'should have many mentions' do
+        expect(user).to respond_to(:mentions)
+      end
+
+      it 'should have many tweet mentions' do
+        expect(user).to respond_to(:tweet_mentions)
       end
     end
   end
