@@ -7,6 +7,9 @@
 <h2><%= @user.name %></h2>
 <small>@<%= @user.username %></small>
 
+<a href="<%= following_url %>">FOLLOWING</a>
+<a href="<%= followers_url %>">FOLLOWERS</a>
+
 <% if @user == current_user %>
   <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
 <% else %>

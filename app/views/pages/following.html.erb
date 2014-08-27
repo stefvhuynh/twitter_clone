@@ -1,7 +1,7 @@
 <ul>
-  <% @followers.each do |follower| %>
+  <% @followeds.each do |followed| %>
     <li>
-      <a href="<%= user_url(follower) %>">@<%= follower.username %></a>
+      <a href="<%= user_url(followed) %>">@<%= followed.username %></a>
     </li>
   <% end %>
 </ul>
