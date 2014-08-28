@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
+  resources :hashtags, only: [:show, :create]
 
   shallow do
     resources :users do

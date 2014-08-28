@@ -23,9 +23,9 @@ class Tweet < ActiveRecord::Base
   after_save :parse_for_users
 
   def parse_for_users
-    # Use a look-behind to capture every non-whitespace character
+    # Use a look-behind to capture every non-whitespace word-character
     # after the @ symbol. Use uniq in case of double mentions.
-    mentioned_usernames = self.body.scan(/(?<=@)[^\s]*/).uniq
+    mentioned_usernames = self.body.scan(/(?<=@)[^\s\W]*/).uniq
 
     mentioned_usernames.each do |mentioned_username|
       user = User.find_by_username(mentioned_username)
@@ -41,6 +41,7 @@ class Tweet < ActiveRecord::Base
 
   def display
     body_to_display = self.body
+
     self.mentioned_users.each do |mentioned_user|
       body_to_display.gsub!(
         '@' + mentioned_user.username,
