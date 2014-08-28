@@ -14,6 +14,7 @@ gem 'aws-sdk'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem 'backbone-on-rails'
+gem 'faker'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
@@ -28,7 +29,6 @@ end
 group :test do
   gem 'guard-rspec'
   gem 'capybara'
-  gem 'faker'
   gem 'launchy'
 end
 
