@@ -3,7 +3,19 @@ class Tweet < ActiveRecord::Base
 
   belongs_to :user
   has_many :mentions, dependent: :destroy, inverse_of: :tweet
-  has_many :mentioned_users, through: :mentions, source: :user
+  has_many(
+    :mentioned_users,
+    through: :mentions,
+    source: :mentionable,
+    source_type: 'User'
+  )
+
+  has_many(
+    :mentioned_hashtags,
+    through: :mentions,
+    source: :mentionable,
+    source_type: 'Hashtag'
+  )
 
   validates :body, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
@@ -17,7 +29,10 @@ class Tweet < ActiveRecord::Base
 
     mentioned_usernames.each do |mentioned_username|
       user = User.find_by_username(mentioned_username)
-      self.mentions.create!(user_id: user.id) unless user.nil?
+
+      unless user.nil?
+        self.mentions.create!(mentionable_id: user.id, mentionable_type: 'User')
+      end
     end
   end
 
