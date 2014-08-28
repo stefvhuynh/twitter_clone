@@ -1,0 +1,6 @@
+<h1>Results for #<%= @hashtag.name %></h1>
+
+<h3>Tweets</h3>
+
+<%= render partial: 'tweets/tweets',
+  locals: { tweets: @hashtag.mentioned_tweets.order(created_at: :desc) } %>

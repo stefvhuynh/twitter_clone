@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  resources :hashtags, only: [:show, :create]
+  resources :hashtags, only: :show
 
   shallow do
     resources :users do
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get 'mentions', to: 'pages#mentions'
+  get 'search', to: 'pages#search'
 
   get 'auth/facebook/callback', to: 'sessions#oauth'
 end

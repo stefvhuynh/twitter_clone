@@ -12,4 +12,9 @@ class PagesController < ApplicationController
     render :mentions
   end
 
+  def search
+    @users = User.all
+    @hashtags = Hashtag.all
+  end
+
 end

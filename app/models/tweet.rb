@@ -1,6 +1,4 @@
 class Tweet < ActiveRecord::Base
-  include Rails.application.routes.url_helpers
-
   belongs_to :user
   has_many :mentions, dependent: :destroy, inverse_of: :tweet
   has_many(
@@ -20,11 +18,9 @@ class Tweet < ActiveRecord::Base
   validates :body, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 
-  after_save :parse_for_users
+  after_save :parse_for_users, :parse_for_hashtags
 
   def parse_for_users
-    # Use a look-behind to capture every non-whitespace word-character
-    # after the @ symbol. Use uniq in case of double mentions.
     mentioned_usernames = self.body.scan(/(?<=@)[^\s\W]*/).uniq
 
     mentioned_usernames.each do |mentioned_username|
@@ -37,19 +33,41 @@ class Tweet < ActiveRecord::Base
   end
 
   def parse_for_hashtags
+    mentioned_hashtags = self.body.scan(/(?<=#)[^\s\W]*/).uniq
+
+    mentioned_hashtags.each do |mentioned_hashtag|
+      hashtag = Hashtag.find_by_name(mentioned_hashtag) ||
+        Hashtag.create!(name: mentioned_hashtag)
+
+      self.mentions.create!(mentionable_id: hashtag.id, mentionable_type: 'Hashtag')
+    end
   end
 
   def display
-    body_to_display = self.body
+    display_text = self.body
+    insert_user_links!(display_text)
+    insert_hashtag_links!(display_text)
+    display_text.html_safe
+  end
 
+  def insert_user_links!(display_text)
     self.mentioned_users.each do |mentioned_user|
-      body_to_display.gsub!(
+      display_text.gsub!(
         '@' + mentioned_user.username,
         "<a href='/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
       )
     end
+  end
 
-    body_to_display.html_safe
+  def insert_hashtag_links!(display_text)
+    self.mentioned_hashtags.each do |mentioned_hashtag|
+      display_text.gsub!(
+        '#' + mentioned_hashtag.name,
+        "<a href='/hashtags/#{mentioned_hashtag.id}'>
+          ##{mentioned_hashtag.name}
+        </a>"
+      )
+    end
   end
 
 end

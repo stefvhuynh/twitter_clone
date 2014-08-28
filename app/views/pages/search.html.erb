@@ -8,3 +8,13 @@
     </li>
   <% end %>
 </ul>
+
+<h2>All Hashtags</h2>
+
+<ul>
+  <% @hashtags.each do |hashtag| %>
+    <li>
+      <a href="<%= hashtag_url(hashtag) %>">#<%= hashtag.name %></a>
+    </li>
+  <% end %>
+</ul>
