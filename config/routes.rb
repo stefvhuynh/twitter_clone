@@ -7,8 +7,7 @@ Rails.application.routes.draw do
       get 'following', to: 'users#following'
       get 'followers', to: 'users#followers'
 
-      post 'follow', on: :member
-      delete 'unfollow', on: :member
+      resource :follows, only: [:create, :destroy]
     end
   end
 

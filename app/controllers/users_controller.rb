@@ -47,32 +47,6 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def follow
-    follow = Follow.new(
-      followed_id: params[:id],
-      follower_id: current_user.id
-    )
-
-    unless follow.save
-      flash[:errors] = follow.errors.full_messages
-    end
-
-    redirect_to user_url(params[:id])
-  end
-
-  def unfollow
-    follow = Follow.where(
-      followed_id: params[:id],
-      follower_id: current_user.id
-    ).first
-
-    unless follow.destroy
-      flash[:errors] = follow.errors.full_messages
-    end
-
-    redirect_to user_url(params[:id])
-  end
-
   def following
     @user = User.find(params[:user_id])
     @followeds = @user.followeds

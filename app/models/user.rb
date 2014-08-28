@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   has_many :tweets
   has_many :mentions, dependent: :destroy, inverse_of: :user
-  has_many :followed_follows, class_name: 'Follow', foreign_key: :followed_id
-  has_many :follower_follows, class_name: 'Follow', foreign_key: :follower_id
+  has_many :followed_follows, class_name: 'Follow', foreign_key: :follower_id
+  has_many :follower_follows, class_name: 'Follow', foreign_key: :followed_id
 
   has_many :mentioned_tweets, through: :mentions, source: :tweet
-  has_many :followeds, through: :follower_follows, source: :followed
-  has_many :followers, through: :followed_follows, source: :follower
+  has_many :followeds, through: :followed_follows, source: :followed
+  has_many :followers, through: :follower_follows, source: :follower
   has_many :followed_tweets, through: :followeds, source: :tweets
 
   has_attached_file :avatar
