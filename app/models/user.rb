@@ -22,6 +22,23 @@ class User < ActiveRecord::Base
     presence: true, uniqueness: true
   )
 
+  def self.find_or_create_by_oauth(auth_hash)
+    user = User.find_by(provider: auth_hash[:provider], uid: auth_hash[:uid])
+
+    unless user.nil?
+      return user
+    else
+      User.create!(
+        provider: auth_hash[:provider],
+        uid: auth_hash[:uid],
+        name: auth_hash[:info][:name],
+        email: auth_hash[:info][:email],
+        username: auth_hash[:info][:name].gsub(/\s/, '_'), # Will maybe change
+        password: SecureRandom::urlsafe_base64
+      )
+    end
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     (user && user.is_password?(password)) ? user : nil

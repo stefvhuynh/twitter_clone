@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get 'mentions', to: 'pages#mentions'
+
+  get 'auth/facebook/callback', to: 'sessions#oauth'
 end

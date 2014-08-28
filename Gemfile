@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'omniauth-facebook'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development

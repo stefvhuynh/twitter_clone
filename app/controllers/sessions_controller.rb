@@ -24,6 +24,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def oauth
+    user = User.find_or_create_by_oauth(request.env['omniauth.auth'])
+    sign_in!(user)
+    redirect_to root_url
+  end
+
   def destroy
     sign_out!
     redirect_to new_session_url
