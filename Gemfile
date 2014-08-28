@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'backbone-on-rails'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
