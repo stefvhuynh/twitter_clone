@@ -18,7 +18,7 @@ class Tweet < ActiveRecord::Base
   validates :body, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 
-  after_save :parse_for_users, :parse_for_hashtags
+  before_validation :parse_for_users, :parse_for_hashtags
 
   def parse_for_users
     mentioned_usernames = self.body.scan(/(?<=@)[^\s\W]*/).uniq
@@ -27,7 +27,10 @@ class Tweet < ActiveRecord::Base
       user = User.find_by_username(mentioned_username)
 
       unless user.nil?
-        self.mentions.create!(mentionable_id: user.id, mentionable_type: 'User')
+        self.mentions.new(
+          mentionable_id: user.id,
+          mentionable_type: 'User'
+        )
       end
     end
   end
@@ -39,7 +42,10 @@ class Tweet < ActiveRecord::Base
       hashtag = Hashtag.find_by_name(mentioned_hashtag) ||
         Hashtag.create!(name: mentioned_hashtag)
 
-      self.mentions.create!(mentionable_id: hashtag.id, mentionable_type: 'Hashtag')
+      self.mentions.new(
+        mentionable_id: hashtag.id,
+        mentionable_type: 'Hashtag'
+      )
     end
   end
 

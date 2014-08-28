@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     presence: true, uniqueness: true
   )
 
-  def self.find_or_create_by_oauth(auth_hash)
+  def self.find_or_create_by_oauth!(auth_hash)
     user = User.find_by(provider: auth_hash[:provider], uid: auth_hash[:uid])
 
     unless user.nil?
