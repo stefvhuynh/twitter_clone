@@ -4,14 +4,14 @@ User.create({
   name: 'Charlie Brown',
   email: 'charlie@brown.com',
   password: '123456',
-  username: 'charlie_brown'
+  username: 'charlie'
 })
 
 User.create({
   name: 'Sally Brown',
   email: 'sally@brown.com',
   password: '123456',
-  username: 'sal'
+  username: 'sally'
 })
 
 User.create({
@@ -25,10 +25,10 @@ User.create({
   name: 'Linus van Pelt',
   email: 'linus@vanpelt.com',
   password: '123456',
-  username: 'linusvanpelt'
+  username: 'linus'
 })
 
-10.times do
+30.times do
   User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -37,14 +37,14 @@ User.create({
   })
 end
 
-30.times do
+100.times do
   Tweet.create({
-    body: Faker::Lorem.sentence,
+    body: Faker::Lorem.paragraph,
     user_id: (rand * User.count).ceil
   })
 end
 
-20.times do
+60.times do
   Follow.create({
     followed_id: (rand * User.count).ceil,
     follower_id: (rand * User.count).ceil
