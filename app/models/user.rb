@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: [:name, :username]
+  
   has_many :tweets
   has_many :mentions, as: :mentionable, dependent: :destroy
   has_many :followed_follows, class_name: 'Follow', foreign_key: :follower_id

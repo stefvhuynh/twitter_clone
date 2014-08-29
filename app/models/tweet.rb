@@ -1,4 +1,7 @@
 class Tweet < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: :body
+  
   belongs_to :user
   has_many :mentions, dependent: :destroy, inverse_of: :tweet
   has_many(
