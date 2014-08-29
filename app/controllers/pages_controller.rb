@@ -13,8 +13,8 @@ class PagesController < ApplicationController
   end
 
   def search
-    @users = User.all
-    @hashtags = Hashtag.all
+    @query = params[:search][:query]
+    @search_results = PgSearch.multisearch(@query).map(&:searchable)
   end
 
 end

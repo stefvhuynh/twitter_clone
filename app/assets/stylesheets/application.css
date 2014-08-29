@@ -30,6 +30,7 @@ a, input, button, img, footer, header, nav {
   text-decoration: none;
   color: black;
   list-style: none;
+  font-size: 14px;
 }
 
 /* Utilities */
@@ -50,6 +51,14 @@ body {
 
 h1 {
   font-size: 25px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
 }
 
 input {
@@ -78,12 +87,26 @@ a:hover {
   text-decoration: underline;
 }
 
+main {
+  padding: 15px;
+}
+
+main > .left-section {
+  float: left;
+  margin-right: 15px;
+}
+
+main > .center-section {
+  float: left;
+}
+
 .form-main {
   border: 1px solid #ddd;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
   padding: 30px 120px 20px 120px;
   margin: auto;
+  margin-top: 10px;
   width: 610px;
 }
 
@@ -110,7 +133,7 @@ a:hover {
   height: 46px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 1px 0 #eee;
-  margin-bottom: 10px;
+/*  margin-bottom: 10px;*/
 }
 
 .signed-out-header > nav {
@@ -132,7 +155,6 @@ a:hover {
 
 .signed-in-header {
   height: 46px;
-  margin-bottom: 10px;
   background: white;
   box-shadow: 0 2px 0 #5C859B;
 }
@@ -175,17 +197,7 @@ a:hover {
   border-radius: 10px;
 }
 
-/* Tweets */
 
-.tweets-list {
-  width: 550px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
 
-.tweet-preview {
-  border-top: 1px solid #ddd;
-  display: block;
-}
 
 

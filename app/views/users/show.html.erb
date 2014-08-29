@@ -1,18 +1,26 @@
-<%= render partial: 'layouts/avatar', locals: { user: @user } %>
+<main class="clear-fix">
+  <header>
+    <a href="<%= user_following_url(@user) %>">FOLLOWING</a>
+    <a href="<%= user_followers_url(@user) %>">FOLLOWERS</a>
 
-<h2><%= @user.name %></h2>
-<small>@<%= @user.username %></small>
+    <% if @user == current_user %>
+      <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
+    <% else %>
+      <%= render partial: 'users/follow_button', locals: { user: @user } %>
+    <% end %>
+  </header>
+  
+  <section class="left-section">
+    <%= render partial: 'layouts/avatar', locals: { user: @user } %>
 
-<a href="<%= user_following_url(@user) %>">FOLLOWING</a>
-<a href="<%= user_followers_url(@user) %>">FOLLOWERS</a>
+    <h2><%= @user.name %></h2>
+    <small>@<%= @user.username %></small>
+  </section>
+  
+  <section class="center-section">
+    <h3>Tweets</h3>
 
-<% if @user == current_user %>
-  <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
-<% else %>
-  <%= render partial: 'users/follow_button', locals: { user: @user } %>
-<% end %>
-
-<h3>Tweets</h3>
-
-<%= render partial: 'tweets/tweets',
-  locals: { tweets: @user.tweets.order(created_at: :desc) } %>
+    <%= render partial: 'tweets/tweets',
+      locals: { tweets: @user.tweets.order(created_at: :desc) } %>
+  </section>
+</main>

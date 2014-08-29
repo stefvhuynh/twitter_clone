@@ -1,3 +1,38 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tweets-list {
+  width: 590px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.tweets-list > li {
+  border-top: 1px solid #ddd;
+}
+
+.tweets-list > li:first-child {
+  border-top: none;
+}
+
+.tweet-preview {
+  padding: 10px;
+}
+
+.tweet-preview > .tweet-avatar {
+  float: left;
+}
+
+.tweet-preview > .tweet-avatar > .avatar {
+  height: 50px;
+  width: 50px;
+}
+
+.tweet-preview > .tweet-body {
+  float: left;
+  width: 510px;
+}
+
+
+

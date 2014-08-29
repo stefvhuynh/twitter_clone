@@ -1,0 +1,7 @@
+<% if result.class == Tweet %>
+  <%= render partial: 'tweets/preview', locals: { tweet: result } %>
+<% elsif result.class == User %>
+  @<a href="<%= user_url(result) %>"><%= result.username %></a>
+<% elsif result.class == Hashtag %>
+  #<a href="<%= hashtag_url(result) %>"><%= result.name %></a>
+<% end %>

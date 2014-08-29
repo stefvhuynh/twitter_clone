@@ -12,12 +12,12 @@
     </ul>
 
     <ul class="right clear-fix">
-      <li><a href="<%= search_url %>">Search</a></li>
+      <li><%= render partial: 'layouts/search' %></li>
       <li><a href="#">Messages</a></li>
       <li><a href="<%= edit_user_url(current_user) %>">Settings</a></li>
       <li><%= render partial: 'layouts/sign_out_button' %></li>
       <li>
-        <a href="<%= new_user_tweet_url(current_user) %>">Compose new Tweet</a>
+        <a href="<%= new_user_tweet_url(current_user) %>">New Tweet</a>
       </li>
     </ul>
   </nav>

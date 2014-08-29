@@ -1,12 +1,16 @@
-<%= render partial: 'layouts/avatar', locals: { user: current_user } %>
+<main class="clear-fix">
+  <section class="left-section">
+    <%= render partial: 'layouts/avatar', locals: { user: current_user } %>
+    <h2>
+      <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
+    </h2>
+    <small>
+      <a href="<%= user_url(current_user) %>">@<%= current_user.username %></a>
+    </small>
+  </section>
 
-<h2>
-  <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
-</h2>
-
-<small>
-  <a href="<%= user_url(current_user) %>">@<%= current_user.username %></a>
-</small>
-
-<h1>Tweets</h1>
-<%= render partial: 'tweets/tweets', locals: { tweets: @tweets } %>
+  <section class="center-section">
+    <h1>Tweets</h1>
+    <%= render partial: 'tweets/tweets', locals: { tweets: @tweets } %>
+  </section>
+</main>

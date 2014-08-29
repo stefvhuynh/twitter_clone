@@ -1,20 +1,13 @@
-<h2>All Users</h2>
+<h2>Results for <%= @query %></h2>
 
 <ul>
-  <% @users.each do |user| %>
+  <% @search_results.each do |result| %>
     <li>
-      <a href="<%= user_url(user) %>"><%= user.name %> </a>
-      @<%= user.username %>
+      <%= render partial: 'pages/search_result', locals: { result: result } %>
     </li>
   <% end %>
 </ul>
 
-<h2>All Hashtags</h2>
 
-<ul>
-  <% @hashtags.each do |hashtag| %>
-    <li>
-      <a href="<%= hashtag_url(hashtag) %>">#<%= hashtag.name %></a>
-    </li>
-  <% end %>
-</ul>
+
+

@@ -1,7 +1,16 @@
-<article class="tweet-preview">
-  <%= render partial: 'layouts/avatar', locals: { user: tweet.user } %>
-  <h3><a href="<%= user_url(tweet.user) %>">@<%= tweet.user.username %></a></h3>
-  <small><%= tweet.created_at %></small>
-  <p><%= tweet.display %></p>
-  <a class="tweet-detail" href="<%= tweet_url(tweet) %>">Details</a>
+<article class="tweet-preview clear-fix">
+  <section class="tweet-avatar">
+    <%= render partial: 'layouts/avatar', locals: { user: tweet.user } %>
+  </section>
+  
+  <section class="tweet-body">
+    <h4>
+      <a href="<%= user_url(tweet.user) %>">
+        <%= tweet.user.name %> @<%= tweet.user.username %>
+      </a>
+    </h4>
+    <small><%= tweet.created_at %></small>
+    <p><%= tweet.display %></p>
+    <a class="tweet-detail" href="<%= tweet_url(tweet) %>">Details</a>
+  </section>
 </article>
