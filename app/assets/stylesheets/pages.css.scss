@@ -2,18 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search-bar {
-  width: 120px;
-  height: 30px;
-  margin: 0;
-  border: none;
-  background: #929BA2;
-  color: #fff;
-  border-radius: 15px;
-  margin-top: -5px;
-}
-
-.search-bar:focus {
-  border: none;
-  background: #465368;
-}
