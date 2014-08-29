@@ -73,8 +73,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '#' + mentioned_hashtag.name,
         "<a href='/hashtags/#{mentioned_hashtag.id}'>
-          ##{mentioned_hashtag.name}
-        </a>"
+          ##{mentioned_hashtag.name}</a>"
       )
     end
   end
