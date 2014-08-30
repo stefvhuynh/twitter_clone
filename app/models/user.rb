@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
     :username, :email, :session_token,
     presence: true, uniqueness: true
   )
+  validate :username_can_only_contain_valid_characters
 
   def self.find_or_create_by_oauth!(auth_hash)
     user = User.find_by(provider: auth_hash[:provider], uid: auth_hash[:uid])
@@ -69,6 +70,13 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
+  end
+  
+  def username_can_only_contain_valid_characters
+    if self.username =~ /[^a-zA-Z0-9_]/
+      errors[:username] << 'Username can only contain letters, 
+        numbers, and underscores.'
+    end
   end
 
 end

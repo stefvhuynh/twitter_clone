@@ -3,12 +3,12 @@ class PagesController < ApplicationController
 
   def home
     user_tweets = current_user.tweets.includes(
-      :mentioned_users, 
+      :mentioned_users,
       :mentioned_hashtags
     )
-      
+
     followed_tweets = current_user.followed_tweets.includes(
-      :mentioned_users, 
+      :mentioned_users,
       :mentioned_hashtags
     )
     

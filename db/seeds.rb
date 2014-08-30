@@ -39,7 +39,7 @@ end
 
 100.times do
   Tweet.create({
-    body: Faker::Hacker.say_something_smart,
+    body: Faker::Hacker.say_something_smart + ' @' + User.all.sample.username,
     user_id: (rand * User.count).ceil
   })
 end

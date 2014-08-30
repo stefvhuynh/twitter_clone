@@ -11,7 +11,7 @@
   </header>
   
   <section class="left-section">
-    <%= render partial: 'layouts/avatar', locals: { user: @user } %>
+    <img class="avatar" src="<%= @user.avatar.url %>">
 
     <h2><%= @user.name %></h2>
     <small>@<%= @user.username %></small>
