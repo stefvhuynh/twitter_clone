@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   shallow do
     resources :users do
       resources :tweets, except: [:index, :edit, :update]
-      get 'following', to: 'users#following'
-      get 'followers', to: 'users#followers'
+      get 'following', on: :member
+      get 'followers', on: :member
 
       resource :follows, only: [:create, :destroy]
     end
@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   get 'search', to: 'pages#search'
 
   get 'auth/facebook/callback', to: 'sessions#oauth'
+  
+  namespace :api do
+    resources :users, only: [:show, :update, :destroy] do
+      
+    end
+  end
 end
