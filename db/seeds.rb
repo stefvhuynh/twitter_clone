@@ -28,7 +28,7 @@ User.create({
   username: 'linus'
 })
 
-30.times do
+100.times do
   User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -37,14 +37,16 @@ User.create({
   })
 end
 
-100.times do
+500.times do
   Tweet.create({
-    body: Faker::Hacker.say_something_smart + ' @' + User.all.sample.username,
+    body: Faker::Hacker.say_something_smart + 
+      ' @' + User.all.sample.username + 
+      ' #' + Faker::Hacker.noun,
     user_id: (rand * User.count).ceil
   })
 end
 
-60.times do
+500.times do
   Follow.create({
     followed_id: (rand * User.count).ceil,
     follower_id: (rand * User.count).ceil
