@@ -1,6 +1,6 @@
 <article class="tweet-preview clear-fix">
   <section class="tweet-avatar">
-    <%= render partial: 'layouts/avatar', locals: { user: tweet.user } %>
+    <img class="avatar" src="<%= tweet.user.avatar.url %>">
   </section>
   
   <section class="tweet-body">

@@ -1,6 +1,6 @@
 <main class="clear-fix">
   <section class="left-section">
-    <%= render partial: 'layouts/avatar', locals: { user: current_user } %>
+    <img class="avatar" src="<%= current_user.avatar.url %>">
     <h2>
       <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
     </h2>
