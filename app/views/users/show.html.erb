@@ -20,7 +20,6 @@
   <section class="center-section">
     <h3>Tweets</h3>
 
-    <%= render partial: 'tweets/tweets',
-      locals: { tweets: @user.tweets.order(created_at: :desc) } %>
+    <%= render partial: 'tweets/tweets', locals: { tweets: @user.tweets } %>
   </section>
 </main>

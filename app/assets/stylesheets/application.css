@@ -89,10 +89,12 @@ a:hover {
 
 main {
   padding: 15px;
+  width: 918px;
 }
 
 main > .left-section {
   float: left;
+  width: 200px;
   margin-right: 15px;
 }
 

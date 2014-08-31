@@ -9,7 +9,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(
+      tweets: [:mentioned_users, :mentioned_hashtags]
+    ).find(params[:id])
+      
     render :show
   end
 
