@@ -1,7 +1,9 @@
 json.extract! @user, :id, :name, :username, :email
 json.avatar_url @user.avatar
 
-json.tweets @user.tweets do |tweet|
+json.tweets @user.tweets
+  .includes(:mentioned_users, :mentioned_hashtags) do |tweet|
+    
   json.extract! tweet, :id, :user_id, :created_at
   json.display tweet.display
   

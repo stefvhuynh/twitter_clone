@@ -12,9 +12,8 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
   
   mentionedUsers: function() {
     if (!this._mentionedUsers) {
-      this._mentionedUsers = new TwitterClone.Subsets.MentionedUsers({ 
+      this._mentionedUsers = new TwitterClone.Subsets.MentionedUsers([], { 
         tweet: this,
-        
         // Consider refactoring for modularity...
         parentCollection: TwitterClone.users
       });
@@ -24,9 +23,9 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
   },
   
   parse: function(response) {
-    if (response.mentionedUsers) {
-      this.mentionedUsers().set(response.mentionedUsers, { parse: true });
-      delete response.mentionedUsers;
+    if (response.mentioned_users) {
+      this.mentionedUsers().set(response.mentioned_users, { parse: true });
+      delete response.mentioned_users;
     }
     
     return response;
