@@ -23,8 +23,4 @@ TwitterClone.Collections.Tweets = Backbone.Collection.extend({
     
     return tweet;
   }
-  
-  // initialize: function(options) {
-  //   this._user = options.user;
-  // }
 });

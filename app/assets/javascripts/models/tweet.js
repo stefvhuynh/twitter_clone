@@ -5,7 +5,6 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
     if (!this._user) {
       // Consider refactoring for modularity...
       this._user = TwitterClone.users.getOrFetch(this.get('user_id'));
-      // this._user = new TwitterClone.Models.User();
     }
     
     return this._user;
