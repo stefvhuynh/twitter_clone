@@ -1,8 +1,20 @@
-<img class="avatar" src="<%= @tweet.user.avatar.url %>">
+<main class="tweet-main">
+  <header class="clear-fix">
+    <section class="tweet-avatar">
+      <img class="avatar" src="<%= @tweet.user.avatar.url %>">
+    </section>
+    
+    <section class="tweet-names">
+      <h3>
+        <a href="<%= user_url(@tweet.user) %>"><%= @tweet.user.name %></a>
+      </h3>
+      <small>@<%= @tweet.user.username %></small>
+    </section>
+  </header>
+  
+  <p class="tweet-body">
+    <%= @tweet.display %>
+  </p>
 
-<h5><a href="<%= user_url(@tweet.user) %>"><%= @tweet.user.name %></a></h5>
-<small>@<%= @tweet.user.username %></small>
-
-<p><%= @tweet.body %></p>
-
-<small><%= @tweet.created_at %></small>
+  <small><%= @tweet.created_at %></small>
+</main>

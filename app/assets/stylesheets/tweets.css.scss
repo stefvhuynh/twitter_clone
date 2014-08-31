@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Tweets general
+
+.tweet-avatar {
+  float: left;
+}
+
+.tweet-avatar > .avatar {
+  height: 50px;
+  width: 50px;
+}
+
+// Tweets list
+
 .tweets-list {
   width: 590px;
   border: 1px solid #ddd;
@@ -20,19 +33,37 @@
   padding: 10px;
 }
 
-.tweet-preview > .tweet-avatar {
-  float: left;
-}
-
-.tweet-preview > .tweet-avatar > .avatar {
-  height: 50px;
-  width: 50px;
-}
-
 .tweet-preview > .tweet-body {
   float: left;
   width: 510px;
 }
 
+// Tweet show page
 
+.tweet-main {
+  width: 570px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 25px 35px;
+}
+
+.tweet-main .tweet-names {
+  float: left;
+  padding: 10px 5px;
+}
+
+.tweet-main .tweet-names a {
+  color: #000;
+}
+
+.tweet-main .tweet-names a:hover {
+  color: #58c;
+}
+
+.tweet-main > .tweet-body {
+  font-size: 30px;
+  margin-top: 10px;
+}
 

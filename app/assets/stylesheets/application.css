@@ -30,7 +30,6 @@ a, input, button, img, footer, header, nav {
   text-decoration: none;
   color: black;
   list-style: none;
-  font-size: 14px;
 }
 
 /* Utilities */
@@ -47,6 +46,7 @@ body {
   background: white;
   font-family: tahoma;
   color: black;
+  font-size: 14px;
 }
 
 h1 {
@@ -59,6 +59,14 @@ h2 {
 
 h3 {
   font-size: 18px;
+}
+
+h4 {
+  font-size: 15px;
+}
+
+small {
+  color: #aaa;
 }
 
 input {
