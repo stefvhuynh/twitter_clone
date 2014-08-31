@@ -12,10 +12,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :follower_follows, source: :follower
   has_many :followed_tweets, through: :followeds, source: :tweets
 
-  has_attached_file(
-    :avatar, 
-    default_url: ActionController::Base.helpers.asset_url('missing.png')
-  )
+  has_attached_file :avatar, default_url: '/images/missing.png'
   
   validates_attachment_content_type(
     :avatar,
