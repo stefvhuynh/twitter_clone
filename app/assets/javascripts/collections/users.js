@@ -12,6 +12,7 @@ TwitterClone.Collections.Users = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
+      // Fetch user to get that user's tweets.
       user.fetch();
     }
     

@@ -63,7 +63,8 @@ class Tweet < ActiveRecord::Base
     self.mentioned_users.each do |mentioned_user|
       display_text.gsub!(
         '@' + mentioned_user.username,
-        "<a href='/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
+        # When using backbone, include the # in front of users.
+        "<a href='/#users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
       )
     end
   end
@@ -72,7 +73,8 @@ class Tweet < ActiveRecord::Base
     self.mentioned_hashtags.each do |mentioned_hashtag|
       display_text.gsub!(
         '#' + mentioned_hashtag.name,
-        "<a href='/hashtags/#{mentioned_hashtag.id}'>
+        # When using backbone, include the # in front of hashtags.
+        "<a href='/#hashtags/#{mentioned_hashtag.id}'>
           ##{mentioned_hashtag.name}</a>"
       )
     end

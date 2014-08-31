@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'pages#home'
+  # root to: 'pages#home'
+  root to: 'pages#root'
   get 'mentions', to: 'pages#mentions'
   get 'search', to: 'pages#search'
 

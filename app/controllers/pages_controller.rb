@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   before_filter :require_signed_in!
-
+  
+  def root
+    render :root
+  end
+  
   def home
     user_tweets = current_user.tweets.includes(
       :mentioned_users,

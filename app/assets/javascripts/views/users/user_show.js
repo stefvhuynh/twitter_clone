@@ -20,8 +20,14 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
   },
 
   renderTweets: function() {
-    var content = this.subTemplate({ tweets: this.model.tweets() });
+    var content = this.subTemplate({ 
+      tweets: this.model.tweets(),
+      user: this.model
+    });
+    
     $('.tweets-list').html(content);
     return this;
   }
 });
+
+
