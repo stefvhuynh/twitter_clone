@@ -5,13 +5,18 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    'users/:id': 'userShow'
+    'users/:id': 'userShow',
+    'tweets/:id': 'tweetShow'
   },
   
   userShow: function(id) {
     var user = TwitterClone.users.getOrFetch(id);
     var view = new TwitterClone.Views.UserShow({ model: user });
     this._swapView(view);
+  },
+  
+  tweetShow: function(id) {
+    // var tweet = TwitterClone ...
   },
   
   _swapView: function(view) {

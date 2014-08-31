@@ -1,0 +1,22 @@
+<main class="tweet-main">
+  <header class="clear-fix">
+    <section class="tweet-avatar">
+      <img class="avatar" src="<%= tweet.user().escape('avatar_url') %>">
+    </section>
+    
+    <section class="tweet-names">
+      <h3>
+        <a href="<%= user_url(tweet.user()) %>">
+          <%= tweet.user().escape('name') %>
+        </a>
+      </h3>
+      <small>@<%= tweet.user().escape('username') %></small>
+    </section>
+  </header>
+  
+  <p class="tweet-body">
+    <%= tweet.get('display') %>
+  </p>
+
+  <small><%= tweet.escape('created_at') %></small>
+</main>

@@ -8,14 +8,15 @@
       <section class="tweet-body">
         <h4>
           <a href="#users/<%= user.id %>">
-            <%= user.escape('name') %> @
-            <%= user.escape('username') %>
+            <%= user.escape('name') %> @<%= user.escape('username') %>
           </a>
         </h4>
         <small><%= tweet.escape('created_at') %></small>
+        
         <p><%= tweet.get('display') %></p>
-        <!-- LINK TO TWEET SHOW... -->
-        <a class="tweet-detail" href="#">Details</a>
+        <a class="tweet-detail" href="#tweets/<%= tweet.id %>">
+          Details
+        </a>
       </section>
     </article>
   </li>
