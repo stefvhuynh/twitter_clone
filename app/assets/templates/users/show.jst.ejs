@@ -19,6 +19,8 @@
 <section class="center-section">
   <h3>Tweets</h3>
 
-  <ul class="tweets-list">Loading...</ul>
+  <ul class="tweets-list">
+    <%= tweetsTemplate({ user: user, tweets: user.tweets() }) %>
+  </ul>
 </section>
 
