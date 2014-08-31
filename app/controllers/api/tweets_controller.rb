@@ -1,13 +1,9 @@
-class TweetsController < ApplicationController
-  before_filter :require_signed_in!
+class Api::TweetsController < ApplicationController
+  # before_filter :require_signed_in!
 
   def show
     @tweet = Tweet.find(params[:id])
     render :show
-  end
-
-  def new
-    render :new
   end
 
   def create
@@ -20,7 +16,7 @@ class TweetsController < ApplicationController
       render :new
     end
   end
-
+  
   def destroy
   end
 
