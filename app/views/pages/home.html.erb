@@ -14,3 +14,10 @@
     <%= render partial: 'tweets/tweets', locals: { tweets: @tweets } %>
   </section>
 </main>
+
+<script>
+  $(document).ready(function(){
+    window.currentUserId = <%= current_user.id %>;
+    TwitterClone.initialize();
+  });
+</script>

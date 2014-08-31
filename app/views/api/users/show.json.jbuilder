@@ -10,7 +10,7 @@ json.tweets @user.tweets do |tweet|
     json.avatar_url mentioned_user.avatar
   end
   
-  json.mentioned_hashtags tweet.mentioned_hashtags do |mentioned_hashtag|
-    json.extract! mentioned_hashtag, :id, :name
-  end
+  # json.mentioned_hashtags tweet.mentioned_hashtags do |mentioned_hashtag|
+  #   json.extract! mentioned_hashtag, :id, :name
+  # end
 end
