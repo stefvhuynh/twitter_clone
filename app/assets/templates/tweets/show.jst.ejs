@@ -1,16 +1,16 @@
 <main class="tweet-main">
   <header class="clear-fix">
     <section class="tweet-avatar">
-      <img class="avatar" src="<%= tweet.user().escape('avatar_url') %>">
+      <img class="avatar" src="<%= user.escape('avatar_url') %>">
     </section>
     
     <section class="tweet-names">
       <h3>
-        <a href="<%= user_url(tweet.user()) %>">
-          <%= tweet.user().escape('name') %>
+        <a href="#users/<%= user.id %>">
+          <%= user.escape('name') %>
         </a>
       </h3>
-      <small>@<%= tweet.user().escape('username') %></small>
+      <small>@<%= user.escape('username') %></small>
     </section>
   </header>
   

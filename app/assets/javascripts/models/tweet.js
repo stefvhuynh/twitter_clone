@@ -5,6 +5,7 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
     if (!this._user) {
       // Consider refactoring for modularity...
       this._user = TwitterClone.users.getOrFetch(this.get('user_id'));
+      // this._user = new TwitterClone.Models.User();
     }
     
     return this._user;
@@ -26,6 +27,11 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
     if (response.mentioned_users) {
       this.mentionedUsers().set(response.mentioned_users, { parse: true });
       delete response.mentioned_users;
+    }
+    
+    if (response.user) {
+      this._user = TwitterClone.users.add(response.user, { merge: true });
+      delete response.user;
     }
     
     return response;

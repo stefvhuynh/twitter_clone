@@ -1,7 +1,7 @@
 TwitterClone.Collections.Users = Backbone.Collection.extend({
   model: TwitterClone.Models.User,
   
-  getOrFetch: function(id) {
+  getOrFetch: function(id, callback) {
     var user = this.get(id);
     
     if (!user) {
@@ -9,10 +9,11 @@ TwitterClone.Collections.Users = Backbone.Collection.extend({
       user.fetch({
         success: function(model, response) {
           this.add(model);
+          if (callback) callback(model);
         }.bind(this)
       });
     } else {
-      // Fetch user to get that user's tweets.
+      if (callback) callback(user);
       user.fetch();
     }
     

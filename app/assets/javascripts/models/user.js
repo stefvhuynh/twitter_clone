@@ -3,7 +3,10 @@ TwitterClone.Models.User = Backbone.Model.extend({
   
   tweets: function() {
     if (!this._tweets) {
-      this._tweets = new TwitterClone.Collections.Tweets([], { user: this });
+      this._tweets = new TwitterClone.Subsets.UserTweets([], { 
+        user: this,
+        parentCollection: TwitterClone.tweets
+      });
     }
     
     return this._tweets;

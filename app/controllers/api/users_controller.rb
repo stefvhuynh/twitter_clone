@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    puts 'YOU CALLED SHOW ON USERS CONTROLLER'
     sleep 2
     render :show
   end

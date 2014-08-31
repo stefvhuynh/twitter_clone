@@ -7,6 +7,7 @@ window.TwitterClone = {
   
   initialize: function() {
     TwitterClone.users = new TwitterClone.Collections.Users();
+    TwitterClone.tweets = new TwitterClone.Collections.Tweets();
     
     TwitterClone.currentUser = new TwitterClone.Models.User({ 
       id: window.currentUserId 
