@@ -22,5 +22,7 @@ window.TwitterClone = {
     });
     
     console.log('Instantiate router and render something!');
+    new TwitterClone.Routers.AppRouter({ $rootEl: $('#content') });
+    Backbone.history.start();
   }
 };
