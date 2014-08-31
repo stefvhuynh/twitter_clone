@@ -1,6 +1,5 @@
 class Tweet < ActiveRecord::Base
   include PgSearch
-  multisearchable against: :body
   
   belongs_to :user
   has_many :mentions, dependent: :destroy, inverse_of: :tweet
@@ -20,8 +19,10 @@ class Tweet < ActiveRecord::Base
 
   validates :body, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
-
+  
+  default_scope { order(created_at: :desc) }
   before_validation :parse_for_users, :parse_for_hashtags
+  multisearchable against: :body
 
   def parse_for_users
     mentioned_usernames = self.body.scan(/(?<=@)[^\s\W]*/).uniq
@@ -64,7 +65,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '@' + mentioned_user.username,
         # When using backbone, include the # in front of users.
-        "<a href='/users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
+        "<a href='/#users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
       )
     end
   end
@@ -74,7 +75,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '#' + mentioned_hashtag.name,
         # When using backbone, include the # in front of hashtags.
-        "<a href='/hashtags/#{mentioned_hashtag.id}'>
+        "<a href='/#hashtags/#{mentioned_hashtag.id}'>
           ##{mentioned_hashtag.name}</a>"
       )
     end
