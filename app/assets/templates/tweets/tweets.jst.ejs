@@ -1,0 +1,22 @@
+<% tweets.forEach(function(tweet) { %>
+  <li>
+    <article class="tweet-preview clear-fix">
+      <section class="tweet-avatar">
+        <img class="avatar" src="<%= tweet.user().escape('avatar_url') %>">
+      </section>
+  
+      <section class="tweet-body">
+        <h4>
+          <a href="#users/<%= tweet.user().id %>">
+            <%= tweet.user().escape('name') %> @
+            <%= tweet.user().escape('username') %>
+          </a>
+        </h4>
+        <small><%= tweet.escape('created_at') %></small>
+        <p><%= tweet.escape('display') %></p>
+        <!-- LINK TO TWEET SHOW... -->
+        <a class="tweet-detail" href="#">Details</a>
+      </section>
+    </article>
+  </li>
+<% }); %>

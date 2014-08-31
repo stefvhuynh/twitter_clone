@@ -1,0 +1,24 @@
+<header>
+  <a href="#">FOLLOWING</a>
+  <a href="#">FOLLOWERS</a>
+
+  <% if user == TwitterClone.currentUser %>
+    <a href="#">Edit profile</a>
+  <% else %>
+    <!-- FOLLOW BUTTON... -->
+  <% end %>
+</header>
+
+<section class="left-section">
+  <img class="avatar" src="<%= user.escape('avatar_url') %>">
+
+  <h2><%= user.escape('name') %></h2>
+  <small>@<%= user.escape.('username') %></small>
+</section>
+
+<section class="center-section">
+  <h3>Tweets</h3>
+
+  <ul class="tweets-list">Loading...</ul>
+</section>
+
