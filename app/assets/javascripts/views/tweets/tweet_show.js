@@ -3,9 +3,7 @@ TwitterClone.Views.TweetShow = Backbone.View.extend({
   // Will need to add a partial template for replies...
   
   template: JST['tweets/show'],
-  
   tagName: 'main',
-  
   className: 'tweet-main',
   
   initialize: function(options) {

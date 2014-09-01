@@ -97,7 +97,9 @@ a:hover {
 
 main {
   padding: 15px;
-  width: 918px;
+  width: 918px;  
+  width: 820px;
+  margin: auto;
 }
 
 main > .left-section {
