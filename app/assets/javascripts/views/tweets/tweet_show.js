@@ -6,6 +6,8 @@ TwitterClone.Views.TweetShow = Backbone.View.extend({
   
   tagName: 'main',
   
+  className: 'tweet-main',
+  
   initialize: function(options) {
     this.listenTo(this.model, 'sync', this.render);
   },
