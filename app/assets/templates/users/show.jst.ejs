@@ -1,28 +1,38 @@
-<header>
-  <a href="#">FOLLOWING</a>
-  <a href="#">FOLLOWERS</a>
-
-  <% if (user === TwitterClone.currentUser) { %>
-    <a href="#">Edit profile</a>
-  <% } else { %>
-    <!-- FOLLOW BUTTON... -->
-  <% } %>
+<header class="user-header-banner">
+</header>
+<header class="user-header clear-fix">
+  <ul class="clear-fix">
+    <li><a href="#">TWEETS</a></li>
+    <li><a href="#">FOLLOWING</a></li>
+    <li><a href="#">FOLLOWERS</a></li>
+    <li>
+      <% if (user === TwitterClone.currentUser) { %>
+        <a href="#">Edit profile</a>
+      <% } else { %>
+        <!-- FOLLOW BUTTON... -->
+      <% } %>
+    </li>
+  </ul>
 </header>
 
-<section class="left-section">
-  <img class="avatar" src="<%= user.escape('avatar_url') %>">
+<main class="clear-fix">
+  <section class="left-section">
+    <img class="user-avatar avatar" src="<%= user.escape('avatar_url') %>">
 
-  <h2><%= user.escape('name') %></h2>
-  <small>@<%= user.escape('username') %></small>
-</section>
+    <h2><%= user.escape('name') %></h2>
+    <small>@<%= user.escape('username') %></small>
+  </section>
 
-<section class="center-section">
-  <h3>Tweets</h3>
+  <section class="center-section">
+    <ul class="tweets-list">
+      <li class="tweets-list-top clear-fix">
+        <h3>Tweets</h3>
+        <h3>Tweets & replies</h3>
+      </li>
 
-  <ul class="tweets-list">
-    <% user.tweets().forEach(function(tweet) { %>
-      <%= JST['tweets/preview']({ user: user, tweet: tweet }) %>
-    <% }); %>
-  </ul>
-</section>
-
+      <% user.tweets().forEach(function(tweet) { %>
+        <%= JST['tweets/preview']({ user: user, tweet: tweet }) %>
+      <% }); %>
+    </ul>
+  </section>
+</main>

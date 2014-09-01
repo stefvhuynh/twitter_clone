@@ -11,6 +11,7 @@ class Api::PagesController < ApplicationController
       :mentioned_hashtags
     )
 
+    @current_user = current_user
     @feed = user_tweets + followed_tweets
     @feed.sort_by! { |tweet| Time.now - tweet.created_at }
 

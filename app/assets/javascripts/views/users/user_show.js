@@ -1,6 +1,4 @@
 TwitterClone.Views.UserShow = Backbone.View.extend({
-  tagName: 'main',
-  className: 'clear-fix',
   template: JST['users/show'],
 
   initialize: function() {

@@ -16,9 +16,17 @@
 // Tweets list
 
 .tweets-list {
-  width: 590px;
   border: 1px solid #ddd;
   border-radius: 10px;
+}
+
+.tweets-list > .tweets-list-top {
+  padding: 10px 15px;
+}
+
+.tweets-list > .tweets-list-top > h3 {
+  float: left;
+  padding-right: 30px;
 }
 
 .tweets-list > li {
@@ -35,7 +43,7 @@
 
 .tweet-preview > .tweet-body {
   float: left;
-  width: 510px;
+  width: 498px;
 }
 
 // Tweet show page

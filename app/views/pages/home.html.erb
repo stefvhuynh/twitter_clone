@@ -10,8 +10,10 @@
   </section>
 
   <section class="center-section">
-    <h1>Tweets</h1>
-    <%= render partial: 'tweets/tweets', locals: { tweets: @tweets } %>
+    <ul class="tweets-list">
+      <li class="tweets-list-top"><h1>Tweets</h1></li>
+      <%= render partial: 'tweets/tweets', locals: { tweets: @tweets } %>
+    </ul>
   </section>
 </main>
 

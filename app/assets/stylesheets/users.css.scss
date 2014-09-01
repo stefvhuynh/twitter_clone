@@ -2,10 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signed-out-header a {
-  color: #777;
+.user-header-banner {
+  height: 200px;
+  background: #0D70A4;
 }
 
-.signed-out-header a:hover {
-  text-decoration: none; 
+.user-header {
+  border: 1px solid #ccc;
+  background: #fff;
 }
+
+.user-header > ul {
+  float: right;
+}
+
+.user-header > ul > li {
+  float: left;
+}
+
+.user-header > ul > li > a {
+  padding: 15px;
+  display: block;
+}
+
+.user-avatar.avatar {
+  position: absolute;
+  top: -180px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+
+

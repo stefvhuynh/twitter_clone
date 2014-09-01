@@ -1,25 +1,38 @@
-<main class="clear-fix">
-  <header>
-    <a href="<%= following_user_url(@user) %>">FOLLOWING</a>
-    <a href="<%= followers_user_url(@user) %>">FOLLOWERS</a>
+<header class="user-header-banner">
+</header>
+<header class="user-header clear-fix">
+  <ul class="clear-fix">
+    <li><a href="#">TWEETS</a></li>
+    <li><a href="<%= following_user_url(@user) %>">FOLLOWING</a></li>
+    <li><a href="<%= followers_user_url(@user) %>">FOLLOWERS</a></li>
+    <li>
+      <% if @user == current_user %>
+        <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
+      <% else %>
+        <%= render partial: 'users/follow_button', locals: { user: @user } %>
+      <% end %>
+    </li>
+  </ul>
+</header>
 
-    <% if @user == current_user %>
-      <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
-    <% else %>
-      <%= render partial: 'users/follow_button', locals: { user: @user } %>
-    <% end %>
-  </header>
-  
+<main class="clear-fix">
+
   <section class="left-section">
-    <img class="avatar" src="<%= @user.avatar.url %>">
+    <img class="user-avatar avatar" src="<%= @user.avatar.url %>">
 
     <h2><%= @user.name %></h2>
     <small>@<%= @user.username %></small>
   </section>
-  
-  <section class="center-section">
-    <h3>Tweets</h3>
 
-    <%= render partial: 'tweets/tweets', locals: { tweets: @user.tweets } %>
+  <section class="center-section">
+    <ul class="tweets-list">
+      <li class="tweets-list-top clear-fix">
+        <h3>Tweets</h3>
+        <h3>Tweets & replies</h3>
+      </li>
+
+      <%= render partial: 'tweets/tweets', locals: { tweets: @user.tweets } %>
+    </ul>
   </section>
 </main>
+

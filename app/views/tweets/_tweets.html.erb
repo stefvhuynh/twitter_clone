@@ -1,5 +1,3 @@
-<ul class="tweets-list">
-  <% tweets.each do |tweet| %>
-    <li><%= render partial: 'tweets/preview', locals: { tweet: tweet } %></li>
-  <% end %>
-</ul>
+<% tweets.each do |tweet| %>
+  <li><%= render partial: 'tweets/preview', locals: { tweet: tweet } %></li>
+<% end %>

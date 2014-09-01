@@ -2,17 +2,11 @@ class UsersController < ApplicationController
   before_filter :require_signed_in!, except: [:show, :new, :create]
   before_filter :require_signed_out!, only: [:new, :create]
 
-  def index
-    # Will refine based on search criteria provided by the user
-    @users = User.all
-    render :index
-  end
-
   def show
     @user = User.includes(
       tweets: [:mentioned_users, :mentioned_hashtags]
     ).find(params[:id])
-      
+
     render :show
   end
 
@@ -51,14 +45,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    user = User.find(params[:id])
-    @followeds = user.followeds
+    @user = User.find(params[:id])
+    @followeds = @user.followeds
     render :following
   end
 
   def followers
-    user = User.find(params[:id])
-    @followers = user.followers
+    @user = User.find(params[:id])
+    @followers = @user.followers
     render :followers
   end
 

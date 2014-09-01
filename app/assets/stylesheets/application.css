@@ -43,7 +43,7 @@ a, input, button, img, footer, header, nav {
 /* General */
 
 body {
-  background: white;
+  background: #F2F6F8;
   font-family: tahoma;
   color: black;
   font-size: 14px;
@@ -97,19 +97,23 @@ a:hover {
 
 main {
   padding: 15px;
-  width: 918px;
-  width: 820px;
+  width: 900px;
   margin: auto;
 }
 
 main > .left-section {
   float: left;
-  width: 200px;
+  width: 300px;
   margin-right: 15px;
+  background: #fff;
+  position: relative;
 }
 
 main > .center-section {
   float: left;
+  background: #fff;
+  border-radius: 10px;
+  width: 580px;
 }
 
 .form-main {
@@ -147,6 +151,14 @@ main > .center-section {
   box-shadow: 0 1px 0 #eee;
 }
 
+.signed-out-header a {
+  color: #777;
+}
+
+.signed-out-header a:hover {
+  text-decoration: none;
+}
+
 .signed-out-header > nav {
   padding: 0 15px;
   margin: auto;
@@ -171,7 +183,8 @@ main > .center-section {
 }
 
 .signed-in-header > nav {
-  width: 850px;
+  width: 900px;
+  padding: 0 15px;
   margin: auto;
 }
 
