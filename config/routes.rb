@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#oauth'
 
   namespace :api, defaults: { format: :json } do
+    get 'feed', to: 'pages#feed'
+
     shallow do
-      resources :users, only: [:index, :show, :update, :destroy] do
+      resources :users, only: [:show, :update, :destroy] do
         resources :tweets, except: [:index, :new, :edit, :update]
       end
     end

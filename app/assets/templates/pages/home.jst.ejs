@@ -17,7 +17,7 @@
   <h1>Tweets</h1>
   <ul class="tweets-list">
     <% tweets.forEach(function(tweet) { %>
-      <%= JST['tweets/preview']({ user: tweet.user(), tweet: tweet }) %>
+      <%= JST['tweets/preview']({ user: tweet._user, tweet: tweet }) %>
     <% }); %>
   </ul>
 </section>

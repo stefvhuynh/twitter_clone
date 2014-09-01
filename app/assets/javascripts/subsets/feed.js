@@ -1,3 +1,3 @@
 TwitterClone.Subsets.Feed = Backbone.Subset.extend({
-  comparator: 'created_at'
+  url: '/api/feed'
 });

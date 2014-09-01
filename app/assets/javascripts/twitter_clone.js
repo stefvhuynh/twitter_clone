@@ -13,10 +13,15 @@ window.TwitterClone = {
       id: window.currentUserId
     });
 
+    TwitterClone.feed = new TwitterClone.Subsets.Feed([], {
+      parentCollection: TwitterClone.tweets
+    });
+
+    TwitterClone.feed.fetch();
+
     TwitterClone.currentUser.fetch({
       success: function(model, response) {
         TwitterClone.users.add(model);
-        TwitterClone.feed = model.getOrFetchFeed();
         new TwitterClone.Routers.AppRouter({ $rootEl: $('#content') });
         Backbone.history.start();
       }
