@@ -14,12 +14,8 @@ TwitterClone.Collections.Users = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
-      user.fetch({
-        success: function(model, response) {
-          if (callback) callback(model);
-        }
-      });
-      // if (callback) callback(user);
+      user.fetch();
+      if (callback) callback(user);
     }
 
     return user;
