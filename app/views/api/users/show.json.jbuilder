@@ -16,3 +16,13 @@ json.tweets @user.tweets
   #   json.extract! mentioned_hashtag, :id, :name
   # end
 end
+
+json.followeds @user.followeds do |followed|
+  json.extract! followed, :id, :name, :username, :email
+  json.avatar_url followed.avatar
+end
+
+json.followers @user.followers do |follower|
+  json.extract! follower, :id, :name, :username, :email
+  json.avatar_url follower.avatar
+end
