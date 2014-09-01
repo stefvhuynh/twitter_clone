@@ -1,10 +1,10 @@
 <header class="signed-in-header">
   <nav class="clear-fix">
     <ul class="left clear-fix">
-      <li><a href="<%= root_url %>">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="<%= mentions_url %>">Notifications</a></li>
       <li><a href="#">Discover</a></li>
-      <li><a href="<%= user_url(current_user) %>">Me</a></li>
+      <li><a href="#users/<%= current_user.id %>">Me</a></li>
     </ul>
 
     <ul class="center">
