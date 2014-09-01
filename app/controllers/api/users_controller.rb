@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   # before_filter :require_signed_in!, except: [:show, :new, :create]
   # before_filter :require_signed_out!, only: [:new, :create]
-
+  
   def show
     @user = User.find(params[:id])
     sleep 2
@@ -33,17 +33,17 @@ class Api::UsersController < ApplicationController
   def destroy
   end
 
-  def following
-    user = User.find(params[:id])
-    @followeds = user.followeds
-    render :following
-  end
-
-  def followers
-    user = User.find(params[:id])
-    @followers = user.followers
-    render :followers
-  end
+  # def following
+  #   user = User.find(params[:id])
+  #   @followeds = user.followeds
+  #   render :following
+  # end
+  #
+  # def followers
+  #   user = User.find(params[:id])
+  #   @followers = user.followers
+  #   render :followers
+  # end
 
   private
 

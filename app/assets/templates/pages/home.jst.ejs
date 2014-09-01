@@ -15,5 +15,5 @@
 
 <section class="center-section">
   <h1>Tweets</h1>
-  <!-- Use tweetsTemplate and render currentUser's followed tweets -->
+  <%= tweetsTemplate({ tweets: user.feed() }) %>
 </section>

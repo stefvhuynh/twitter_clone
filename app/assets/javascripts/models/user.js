@@ -1,6 +1,17 @@
 TwitterClone.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
   
+  feed: function() {
+    if (!this._feed) {
+      this._feed = new TwitterClone.Subsets.Feed([], {
+        user: this,
+        parentCollection: TwitterClone.tweets
+      })
+    }
+    
+    return this._feed;
+  },
+  
   tweets: function() {
     if (!this._tweets) {
       this._tweets = new TwitterClone.Subsets.UserTweets([], { 
