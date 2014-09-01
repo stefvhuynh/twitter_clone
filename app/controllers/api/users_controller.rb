@@ -1,10 +1,10 @@
 class Api::UsersController < ApplicationController
   # before_filter :require_signed_in!, except: [:show, :new, :create]
   # before_filter :require_signed_out!, only: [:new, :create]
-  
+
   def show
     @user = User.find(params[:id])
-    sleep 2
+    # sleep 2
     render :show
   end
 
@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def update
     if current_user.update(user_params)
       flash.now[:notices] = ['Thanks, your settings have been saved.']

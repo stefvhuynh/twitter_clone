@@ -1,19 +1,23 @@
 <section class="left-section">
-  <img class="avatar" 
-    src="<%= currentUser.escape('avatar_url') %>">
+  <img class="avatar"
+    src="<%= user.escape('avatar_url') %>">
   <h2>
-    <a href="#users/<%= currentUser.id %>">
-      <%= currentUser.escape('name') %>
+    <a href="#users/<%= user.id %>">
+      <%= user.escape('name') %>
     </a>
   </h2>
   <small>
-    <a href="#users/<%= TwitterClone.currentUser.id %>">
-      @<%= currentUser.escape('username') %>
+    <a href="#users/<%= user.id %>">
+      @<%= user.escape('username') %>
     </a>
   </small>
 </section>
 
 <section class="center-section">
   <h1>Tweets</h1>
-  <%= tweetsTemplate({ tweets: user.feed() }) %>
+  <ul class="tweets-list">
+    <% tweets.forEach(function(tweet) { %>
+      <%= JST['tweets/preview']({ user: tweet.user(), tweet: tweet }) %>
+    <% }); %>
+  </ul>
 </section>

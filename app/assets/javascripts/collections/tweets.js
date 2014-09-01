@@ -2,12 +2,12 @@ TwitterClone.Collections.Tweets = Backbone.Collection.extend({
   url: function() {
     return '/api/users/' + this._user.id + '/tweets';
   },
-  
+
   model: TwitterClone.Models.Tweet,
-  
+
   getOrFetch: function(id, callback) {
     var tweet = this.get(id);
-    
+
     if (!tweet) {
       tweet = new this.model({ id: id });
       tweet.fetch({
@@ -20,7 +20,7 @@ TwitterClone.Collections.Tweets = Backbone.Collection.extend({
       callback(tweet);
       tweet.fetch();
     }
-    
+
     return tweet;
   }
 });

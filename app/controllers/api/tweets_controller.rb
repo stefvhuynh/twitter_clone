@@ -3,7 +3,7 @@ class Api::TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-    sleep 2
+    # sleep 2
     render :show
   end
 
@@ -17,7 +17,7 @@ class Api::TweetsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
   end
 

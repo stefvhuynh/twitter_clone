@@ -2,7 +2,6 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
   tagName: 'main',
   className: 'clear-fix',
   template: JST['users/show'],
-  tweetsTemplate: JST['tweets/tweets'],
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
@@ -10,11 +9,10 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({ 
-      user: this.model,
-      tweetsTemplate: this.tweetsTemplate
+    var content = this.template({
+      user: this.model
     });
-    
+
     this.$el.html(content);
     return this;
   }

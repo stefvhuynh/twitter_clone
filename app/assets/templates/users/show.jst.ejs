@@ -20,7 +20,9 @@
   <h3>Tweets</h3>
 
   <ul class="tweets-list">
-    <%= tweetsTemplate({ tweets: user.tweets() }) %>
+    <% user.tweets().forEach(function(tweet) { %>
+      <%= JST['tweets/preview']({ user: user, tweet: tweet }) %>
+    <% }); %>
   </ul>
 </section>
 
