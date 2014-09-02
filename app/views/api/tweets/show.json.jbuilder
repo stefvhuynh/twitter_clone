@@ -5,12 +5,11 @@ json.user do
   json.id @tweet.user.id
   json.name @tweet.user.name
   json.username @tweet.user.username
-  json.email @tweet.user.email
   json.avatar_url @tweet.user.avatar
 end
 
 json.mentioned_users @tweet.mentioned_users do |mentioned_user|
-  json.extract! mentioned_user, :id, :name, :username, :email
+  json.extract! mentioned_user, :id, :name, :username
   json.avatar_url mentioned_user.avatar
 end
 

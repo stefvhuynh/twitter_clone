@@ -1,4 +1,4 @@
-json.extract! @user, :id, :name, :username, :email
+json.extract! @user, :id, :name, :username
 json.avatar_url @user.avatar
 
 json.tweets @user.tweets
@@ -8,7 +8,7 @@ json.tweets @user.tweets
   json.display tweet.display
   
   json.mentioned_users tweet.mentioned_users do |mentioned_user|
-    json.extract! mentioned_user, :id, :name, :username, :email
+    json.extract! mentioned_user, :id, :name, :username
     json.avatar_url mentioned_user.avatar
   end
   
@@ -18,11 +18,11 @@ json.tweets @user.tweets
 end
 
 json.followeds @user.followeds do |followed|
-  json.extract! followed, :id, :name, :username, :email
+  json.extract! followed, :id, :name, :username
   json.avatar_url followed.avatar
 end
 
 json.followers @user.followers do |follower|
-  json.extract! follower, :id, :name, :username, :email
+  json.extract! follower, :id, :name, :username
   json.avatar_url follower.avatar
 end
