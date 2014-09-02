@@ -20,7 +20,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     this.$el.html(content);
     this.$subviewEl = this.$el.find('#subview-container');
 
-    // this.renderTweets();
+    this.renderTweets();
     return this;
   },
 

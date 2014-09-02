@@ -5,6 +5,6 @@
   </li>
 
   <% tweets.forEach(function(tweet) { %>
-    <%= JST['tweets/preview']({ user: tweet._user, tweet: tweet }) %>
+    <%= JST['tweets/preview']({ user: tweet.user(), tweet: tweet }) %>
   <% }); %>
 </ul>
