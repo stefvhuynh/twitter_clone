@@ -9,7 +9,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.tweets, 'sync add remove', this.render);
+    this.listenTo(this.model.tweets(), 'sync add remove', this.render);
   },
 
   render: function() {

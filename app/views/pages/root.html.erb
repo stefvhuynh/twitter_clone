@@ -1,1 +1,19 @@
 <div id="content">Loading...</div>
+
+<script>
+  $(document).ready(function(){
+    // $('#new-tweet').on('click', function(event) {
+    //   event.preventDefault();
+    //   $('#new-tweet-modal').removeClass('modal-off');
+    // });
+    //
+    // $('.new-tweet-modal-close').on('click', function(event) {
+    //   event.preventDefault();
+    //   $('#new-tweet-modal').addClass('modal-off');
+    //   $('.new-tweet-textbox').val('');
+    // });
+
+    window.currentUserId = <%= current_user.id %>;
+    TwitterClone.initialize();
+  });
+</script>

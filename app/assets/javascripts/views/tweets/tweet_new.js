@@ -14,8 +14,12 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var tweetData = $(event.target).serializeJSON();
-    TwitterClone.currentUser.tweets().create(tweetData);
-    this.remove();
 
+    TwitterClone.currentUser.tweets().create(tweetData, {
+      url: TwitterClone.currentUser.tweets().url()
+    });
+
+    this.remove();
+    window.history.back();
   }
 });
