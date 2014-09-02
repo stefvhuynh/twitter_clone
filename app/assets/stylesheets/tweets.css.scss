@@ -65,10 +65,12 @@
 
 .new-tweet-modal .new-tweet-textbox {
   border: 1px solid #B3D8E7;
-  width: 485px;
-  height: 100px;
+  width: 479px;
+  height: 99px;
   border-radius: 2px;
   display: block;
+  background: #fff;
+  margin: 0;
 }
 
 .new-tweet-form {
@@ -82,6 +84,10 @@
   margin-top: 10px;
   left: 405px;
   padding: 10px 20px;
+}
+
+.new-tweet-button.blue-button:hover {
+  background: #0F598F;
 }
 
 // Tweets list

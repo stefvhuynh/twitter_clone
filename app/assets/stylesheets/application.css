@@ -18,7 +18,7 @@
 
 html, body, main, section, article, aside, div,
 span, p, h1, h2, h3, h4, h5, big, small, ul, li,
-a, input, button, img, footer, header, nav {
+a, input, textarea, button, img, footer, header, nav {
   border: 0;
   margin: 0;
   padding: 0;
@@ -30,6 +30,7 @@ a, input, button, img, footer, header, nav {
   text-decoration: none;
   color: black;
   list-style: none;
+  resize: none;
 }
 
 /* Utilities */
@@ -69,7 +70,7 @@ small {
   color: #aaa;
 }
 
-input {
+input, textarea {
   display: block;
   border-radius: 3px;
   padding: 3px 5px;
