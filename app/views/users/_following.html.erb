@@ -1,5 +1,5 @@
-<header class="user-header-banner">
-</header>
+<header class="user-header-banner"></header>
+
 <header class="user-header clear-fix">
   <ul class="clear-fix">
     <li><a href="<%= user_url(user) %>">TWEETS</a></li>
@@ -15,7 +15,6 @@
   </ul>
 </header>
 
-
 <main class="clear-fix">
   <section class="user-left-section">
     <img class="user-avatar avatar" src="<%= @user.avatar.url %>">
@@ -28,7 +27,7 @@
     <ul class="follow-list clear-fix">
       <% following.each do |follow| %>
         <li>
-          <%= render partial: 'users/follow_show', locals: { user: follow } %>
+          <%= render partial: 'users/follow', locals: { user: follow } %>
         </li>
       <% end %>
     </ul>

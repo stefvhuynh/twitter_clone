@@ -1,0 +1,10 @@
+<ul class="tweets-list">
+  <li class="tweets-list-top clear-fix">
+    <h3>Tweets</h3>
+    <h3>Tweets & replies</h3>
+  </li>
+
+  <% tweets.forEach(function(tweet) { %>
+    <%= JST['tweets/preview']({ user: tweet._user, tweet: tweet }) %>
+  <% }); %>
+</ul>

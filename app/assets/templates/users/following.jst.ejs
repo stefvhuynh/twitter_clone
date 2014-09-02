@@ -1,0 +1,7 @@
+<ul class="follow-list clear-fix">
+  <% following.forEach(function(follow) { %>
+    <li>
+      <%= JST['users/follow']({ user: follow }) %>
+    </li>
+  <% }); %>
+</ul>

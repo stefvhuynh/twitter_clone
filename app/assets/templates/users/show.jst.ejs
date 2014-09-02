@@ -1,10 +1,10 @@
-<header class="user-header-banner">
-</header>
+<header class="user-header-banner"></header>
+
 <header class="user-header clear-fix">
   <ul class="clear-fix">
-    <li><a href="#">TWEETS</a></li>
-    <li><a href="#">FOLLOWING</a></li>
-    <li><a href="#">FOLLOWERS</a></li>
+    <li><a id="tweets-link" href="#">TWEETS</a></li>
+    <li><a id="following-link" href="#">FOLLOWING</a></li>
+    <li><a id="followers-link" href="#">FOLLOWERS</a></li>
     <li>
       <% if (user === TwitterClone.currentUser) { %>
         <a href="#">Edit profile</a>
@@ -23,16 +23,6 @@
     <small>@<%= user.escape('username') %></small>
   </section>
 
-  <section class="center-section">
-    <ul class="tweets-list">
-      <li class="tweets-list-top clear-fix">
-        <h3>Tweets</h3>
-        <h3>Tweets & replies</h3>
-      </li>
-
-      <% user.tweets().forEach(function(tweet) { %>
-        <%= JST['tweets/preview']({ user: user, tweet: tweet }) %>
-      <% }); %>
-    </ul>
+  <section id="subview-container" class="center-section">
   </section>
 </main>

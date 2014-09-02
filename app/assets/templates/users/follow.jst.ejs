@@ -1,0 +1,21 @@
+<div class="follow-container">
+  <header>
+    <div class="banner"></div>
+    <ul class="clear-fix">
+      <li class="avatar-container">
+        <img class="follow-avatar avatar"
+          src="<%= user.escape('avatar_url') %>">
+      </li>
+      <li class="follow-button-container">
+        <!-- FOLLOW BUTTON... -->
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <h3><a href="#users/<%= user.id %>"><%= user.escape('name') %></a></h3>
+    <small>
+      <a href="#users/<%= user.id %>">@<%= user.escape('username') %></a>
+    </small>
+  </main>
+</div>
