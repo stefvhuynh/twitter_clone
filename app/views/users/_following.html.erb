@@ -1,0 +1,38 @@
+<header class="user-header-banner">
+</header>
+<header class="user-header clear-fix">
+  <ul class="clear-fix">
+    <li><a href="#">TWEETS</a></li>
+    <li><a href="<%= following_user_url(user) %>">FOLLOWING</a></li>
+    <li><a href="<%= followers_user_url(user) %>">FOLLOWERS</a></li>
+    <li>
+      <% if user == current_user %>
+        <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
+      <% else %>
+        <%= render partial: 'users/follow_button', locals: { user: @user } %>
+      <% end %>
+    </li>
+  </ul>
+</header>
+
+
+<main class="clear-fix">
+  <section class="user-left-section">
+    <img class="user-avatar avatar" src="<%= @user.avatar.url %>">
+
+    <h2><%= user.name %></h2>
+    <small>@<%= user.username %></small>
+  </section>
+
+  <section class="center-section">
+    <ul class="follow-list clear-fix">
+      <% following.each do |follow| %>
+        <li>
+          <%= render partial: 'users/follow_show', locals: { user: follow } %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</main>
+
+

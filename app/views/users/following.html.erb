@@ -1,29 +1,4 @@
-<main class="clear-fix">
-  <section class="left-section">
-    <img class="avatar" src="<%= @user.avatar.url %>">
+<%= render partial: 'users/following',
+  locals: { user: @user, following: @followeds } %>
 
-    <h2><%= @user.name %></h2>
-    <small>@<%= @user.username %></small>
-  </section>
 
-  <section class="center-section">
-    <header>
-      <a href="<%= following_user_url(@user) %>">FOLLOWING</a>
-      <a href="<%= followers_user_url(@user) %>">FOLLOWERS</a>
-
-      <% if @user == current_user %>
-        <a href="<%= edit_user_url(current_user) %>">Edit profile</a>
-      <% else %>
-        <%= render partial: 'users/follow_button', locals: { user: @user } %>
-      <% end %>
-    </header>
-
-    <ul>
-      <% @followeds.each do |followed| %>
-        <li>
-          <a href="<%= user_url(followed) %>">@<%= followed.username %></a>
-        </li>
-      <% end %>
-    </ul>
-  </section>
-</main>

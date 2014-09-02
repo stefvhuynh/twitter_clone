@@ -15,7 +15,7 @@
 .user-left-section {
   position: relative;
   float: left;
-  width: 290px;
+  width: 300px;
   padding-top: 40px;
   padding-left: 10px;
 }
@@ -39,6 +39,66 @@
   left: 0;
   width: 200px;
   height: 200px;
+}
+
+// Buttons
+
+.unfollow-button.blue-button:hover {
+  background: #c22;
+  border: 1px solid #a00;
+}
+
+// Follows list
+
+.follow-list > li{
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.follow-container {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 10px;
+  width: 283px;
+  height: 278px;
+}
+
+.follow-container .banner {
+  height: 100px;
+  background: #4ce;
+  border-radius: 10px 10px 0 0;
+}
+
+.follow-container .avatar-container {
+  float: left;
+  position: relative;
+}
+
+.follow-container .follow-avatar {
+  position: absolute;
+  top: -35px;
+  left: 10px;
+}
+
+.follow-container .follow-button-container {
+  float: right;
+  padding: 15px;
+}
+
+.follow-container .follow-button-container .follow-button {
+  font-size: 12px;
+  padding: 5px 20px;
+}
+
+.follow-container .follow-button-container .unfollow-button {
+  font-size: 12px;
+  padding: 5px 20px;
+}
+
+.follow-container > main {
+  margin-top: -20px;
+  width: 253px;
 }
 
 
