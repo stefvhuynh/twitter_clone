@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'following', on: :member
       get 'followers', on: :member
 
-      resources :tweets, except: [:index, :edit, :update]
+      resources :tweets, except: [:index, :new, :edit, :update]
       resource :follows, only: [:create, :destroy]
     end
   end

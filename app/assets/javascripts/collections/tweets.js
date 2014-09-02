@@ -1,7 +1,7 @@
 TwitterClone.Collections.Tweets = Backbone.Collection.extend({
-  url: function() {
-    return '/api/users/' + this._user.id + '/tweets';
-  },
+  // url: function() {
+  //   return '/api/users/' + this._user.id + '/tweets';
+  // },
 
   model: TwitterClone.Models.Tweet,
 

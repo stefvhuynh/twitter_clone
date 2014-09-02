@@ -6,10 +6,6 @@ class TweetsController < ApplicationController
     render :show
   end
 
-  def new
-    render :new
-  end
-
   def create
     @tweet = current_user.tweets.build(tweet_params)
 
