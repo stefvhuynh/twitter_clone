@@ -54,15 +54,15 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     this._swapSubview(subview);
   },
 
+  remove: function() {
+    this.currentSubview.remove();
+    Backbone.View.prototype.remove.call(this);
+  },
+
   _swapSubview: function(subview) {
     this.currentSubiew && this.currentSubview.remove();
     this.currentSubview = subview;
     this.$subviewEl.html(subview.render().$el);
-  },
-
-  remove: function() {
-    this.currentSubview.remove();
-    Backbone.View.prototype.remove.call(this);
   }
 });
 

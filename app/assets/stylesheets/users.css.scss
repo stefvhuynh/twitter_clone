@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// New user
+
+.new-user.form-main {
+  border-radius: 10px;
+}
+
+.new-user > h1 {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.new-user > form > label {
+  font-weight: bold;
+}
+
+.new-user input {
+  width: 390px;
+  margin-top: 5px;
+}
+
+.new-user-button {
+  background: #FAD22A;
+  border: 1px solid #FA891E;
+  border-radius: 5px;
+  width: 390px;
+  padding: 10px 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.new-user-button:hover {
+  background: #EABE23;
+}
+
+// User show
+
 .user-header-banner {
   height: 200px;
   background: #0D70A4;
