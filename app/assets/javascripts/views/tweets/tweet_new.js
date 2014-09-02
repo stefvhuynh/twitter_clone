@@ -2,7 +2,8 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
   template: JST['tweets/new'],
 
   events: {
-    'submit form': 'submit'
+    'submit form': 'submit',
+    'click .new-tweet-modal-close': 'remove'
   },
 
   render: function() {
@@ -20,6 +21,10 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
     });
 
     this.remove();
+  },
+
+  remove: function() {
     window.history.back();
+    Backbone.View.Prototype.remove.call(this);
   }
 });
