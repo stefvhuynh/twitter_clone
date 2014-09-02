@@ -1,0 +1,21 @@
+<div id="new-tweet-modal" class="modal-off">
+  <section class="new-tweet-modal-content">
+    <header class="new-tweet-header clear-fix">
+      <h3>Compose new Tweet</h3>
+      <span class="new-tweet-modal-close exit">&times;</span>
+    </header>
+
+    <main>
+      <form class="new-tweet-form"
+        action="<%= user_tweets_url(current_user) %>"
+        method="POST">
+
+        <%= authenticity_token %>
+        <textarea class="new-tweet-textbox" name="tweet[body]"></textarea>
+        <button class="new-tweet-button blue-button">Tweet</button>
+      </form>
+    </main>
+  </section>
+
+  <div class="modal-overlay new-tweet-modal-close"></div>
+</div>

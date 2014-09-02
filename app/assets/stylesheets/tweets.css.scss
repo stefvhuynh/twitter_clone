@@ -15,17 +15,7 @@
 
 // New tweet
 
-.modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-}
-
-.new-tweet-modal {
+.new-tweet-modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,7 +28,7 @@
   margin-top: -150px;
 }
 
-.new-tweet-modal > .new-tweet-header {
+.new-tweet-modal-content > .new-tweet-header {
   background: #fff;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid #B3D8E7;
@@ -47,11 +37,11 @@
   position: relative;
 }
 
-.new-tweet-modal > .new-tweet-header > h3 {
+.new-tweet-modal-content > .new-tweet-header > h3 {
   color: #768796;
 }
 
-.new-tweet-modal > .new-tweet-header > .exit {
+.new-tweet-modal-close {
   position: absolute;
   top: 9px;
   right: 15px;
@@ -59,11 +49,7 @@
   font-size: 18px;
 }
 
-.new-tweet-modal > .new-tweet-header > .exit:hover {
-  text-decoration: none;
-}
-
-.new-tweet-modal .new-tweet-textbox {
+.new-tweet-modal-content .new-tweet-textbox {
   border: 1px solid #B3D8E7;
   width: 479px;
   height: 99px;

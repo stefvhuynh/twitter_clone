@@ -156,6 +156,10 @@ main > .center-section {
   background: #ddd;
 }
 
+.exit:hover {
+  cursor: pointer;
+}
+
 /* Headers */
 
 .signed-out-header {
@@ -252,5 +256,21 @@ main > .center-section {
 .search-bar:focus {
   border: none;
   background: #465368;
+}
+
+/* Modals */
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.modal-off {
+  display: none;
 }
 
