@@ -21,11 +21,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get 'feed', to: 'pages#feed'
-
-    shallow do
-      resources :users, only: [:show, :update, :destroy] do
-        resources :tweets, except: [:index, :new, :edit, :update]
-      end
-    end
+    resources :users, only: [:show, :update, :destroy]
+    resources :tweets, except: [:index, :new, :edit, :update]
   end
 end

@@ -1,15 +1,5 @@
 TwitterClone.Models.Tweet = Backbone.Model.extend({
-  initialize: function(options) {
-    this._user = options.user;
-  },
-
-  urlRoot: function() {
-    if (this._user) {
-      return '/api/' + this._user.id + "/tweets"
-    } else {
-      return '/api/tweets';
-    }
-  },
+  urlRoot: '/api/tweets',
 
   user: function() {
     if (!this._user) {
