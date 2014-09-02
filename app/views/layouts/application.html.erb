@@ -32,6 +32,7 @@
       $('.new-tweet-modal-close').on('click', function(event) {
         event.preventDefault();
         $('#new-tweet-modal').addClass('modal-off');
+        $('.new-tweet-textbox').val('');
       });
 
       window.currentUserId = <%= current_user.id %>;
