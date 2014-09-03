@@ -1,8 +1,0 @@
-<form class="new-tweet-form"
-  action="<%= user_tweets_url(current_user) %>"
-  method="POST">
-
-  <%= authenticity_token %>
-  <textarea class="new-tweet-textbox" name="tweet[body]"></textarea>
-  <button class="new-tweet-button blue-button">Tweet</button>
-</form>

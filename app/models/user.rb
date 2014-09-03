@@ -14,8 +14,12 @@ class User < ActiveRecord::Base
 
   has_attached_file(
     :avatar,
-    default_url: "/images/missing#{rand(0..4)}.png"
+    default_url: "/images/missing:random.png"
   )
+
+  Paperclip.interpolates :random do |attachment, style|
+    attachment.instance.id % 5
+  end
 
   validates_attachment_content_type(
     :avatar,
