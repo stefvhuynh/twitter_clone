@@ -1,0 +1,54 @@
+<main class="edit-user clear-fix">
+  <section class="left-section">
+    <div class="user-card">
+      <header class="user-card-banner"></header>
+      <main class="user-card-main">
+        <%= JST['pages/user_card_info']({ user: user }) %>
+      </main>
+    </div>
+  </section>
+
+  <section class="center-section">
+    <header>
+      <h1>Account</h1>
+      <h4>Change your basic account and language settings.</h4>
+    </header>
+
+    <main>
+      <form class="clear-fix" enctype="multipart/form-data">
+
+        <div>
+          <label for="edit-username">Username</label>
+          <input id="edit-username"
+            type="text"
+            name="user[username]"
+            value="<%= user.escape('username') %>">
+        </div>
+
+        <div>
+          <label for="edit-email">Email</label>
+          <input id="edit-email"
+            type="text"
+            name="user[email]"
+            value="<%= user.escape('email') %>">
+        </div>
+
+        <div>
+          <label for="edit-avatar">Photo</label>
+          <input id="edit-avatar" type="file" name="user[avatar]">
+        </div>
+
+        <div class="edit-user-button-container">
+          <button class="blue-button">Save changes</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <a href="#">Deactivate my account</a>
+    </footer>
+  </section>
+</main>
+
+
+

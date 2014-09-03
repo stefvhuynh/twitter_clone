@@ -1,0 +1,17 @@
+<div class="user-card-info">
+  <img class="user-card-avatar avatar"
+    src="<%= user.escape('avatar_url') %>">
+
+  <div class="user-card-info-name">
+    <h3>
+      <a href="#users/<%= user.id %>">
+        <%= user.escape('name') %>
+      </a>
+    </h3>
+    <small>
+      <a href="#users<%= user.id %>">
+        @<%= user.escape('username') %>
+      </a>
+    </small>
+  </div>
+</div>
