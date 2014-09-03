@@ -137,4 +137,57 @@
   width: 253px;
 }
 
+// Edit user
+
+.edit-user .user-card-main {
+  border-radius: 0 0 5px 5px;
+}
+
+.edit-user .center-section {
+  background: #fff;
+}
+
+.edit-user header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-user footer {
+  padding: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.edit-user form {
+  width: 350px;
+}
+
+.edit-user input {
+  display: inline;
+}
+
+.edit-user form div {
+  float: right;
+}
+
+.edit-user form div label {
+  margin-right: 20px;
+}
+
+.edit-user-button-container {
+  margin-right: 85px;
+}
+
+.edit-user footer a {
+  margin-left: 122px;
+}
+
+.edit-user #edit-avatar {
+  border: 0;
+}
+
+
+
+
+
+
 

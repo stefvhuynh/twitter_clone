@@ -1,0 +1,17 @@
+<div class="user-card-info">
+  <img class="user-card-avatar avatar"
+    src="<%= user.avatar.url %>">
+
+  <div class="user-card-info-name">
+    <h3>
+      <a href="<%= user_url(user) %>">
+        <%= user.name %>
+      </a>
+    </h3>
+    <small>
+      <a href="<%= user_url(user) %>">
+        @<%= user.username %>
+      </a>
+    </small>
+  </div>
+</div>

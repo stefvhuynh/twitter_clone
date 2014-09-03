@@ -1,23 +1,7 @@
 <div class="user-card">
   <header class="user-card-banner"></header>
   <main class="user-card-main">
-    <div class="user-card-info">
-      <img class="user-card-avatar avatar"
-        src="<%= user.avatar.url %>">
-
-      <div class="user-card-info-name">
-        <h3>
-          <a href="<%= user_url(user) %>">
-            <%= user.name %>
-          </a>
-        </h3>
-        <small>
-          <a href="<%= user_url(user) %>">
-            @<%= user.username %>
-          </a>
-        </small>
-      </div>
-    </div>
+    <%= render partial: 'layouts/user_card_info', locals: { user: user } %>
 
     <ul class="user-card-links clear-fix">
       <li>

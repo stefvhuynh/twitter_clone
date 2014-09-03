@@ -1,29 +1,58 @@
-<h1>Account</h1>
-<h4>Change your basic account and language settings.</h4>
+<main class="edit-user clear-fix">
+  <section class="left-section">
+    <div class="user-card">
+      <header class="user-card-banner"></header>
+      <main class="user-card-main">
+        <%= render partial: 'pages/user_card_info',
+          locals: { user: current_user } %>
+      </main>
+    </div>
+  </section>
 
-<form action="<%= user_url(current_user) %>"
-  method="POST"
-  enctype="multipart/form-data">
+  <section class="center-section">
+    <header>
+      <h1>Account</h1>
+      <h4>Change your basic account and language settings.</h4>
+    </header>
 
-  <input type="hidden" name="_method" value="PATCH">
-  <%= authenticity_token %>
+    <main>
+      <form action="<%= user_url(current_user) %>"
+        method="POST"
+        enctype="multipart/form-data"
+        class="clear-fix">
 
-  <label for="edit-username">Username</label>
-  <input id="edit-username"
-    type="text"
-    name="user[username]"
-    value="<%= current_user.username %>">
+        <input type="hidden" name="_method" value="PATCH">
+        <%= authenticity_token %>
 
-  <label for="edit-email">Email</label>
-  <input id="edit-email"
-    type="text"
-    name="user[email]"
-    value="<%= current_user.email %>">
+        <div>
+          <label for="edit-username">Username</label>
+          <input id="edit-username"
+            type="text"
+            name="user[username]"
+            value="<%= current_user.username %>">
+        </div>
 
-  <label for="edit-avatar">Photo</label>
-  <input id="edit-avatar" type="file" name="user[avatar]">
+        <div>
+          <label for="edit-email">Email</label>
+          <input id="edit-email"
+            type="text"
+            name="user[email]"
+            value="<%= current_user.email %>">
+        </div>
 
-  <button class="blue-button">Save changes</button>
-</form>
+        <div>
+          <label for="edit-avatar">Photo</label>
+          <input id="edit-avatar" type="file" name="user[avatar]">
+        </div>
 
-<a href="#">Deactivate my account</a>
+        <div class="edit-user-button-container">
+          <button class="blue-button">Save changes</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <a href="#">Deactivate my account</a>
+    </footer>
+  </section>
+</main>
