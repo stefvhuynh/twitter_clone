@@ -2,14 +2,10 @@
   <img class="avatar"
     src="<%= user.escape('avatar_url') %>">
   <h2>
-    <a href="#users/<%= user.id %>">
-      <%= user.escape('name') %>
-    </a>
+    <a href="#users/<%= user.id %>"><%= user.escape('name') %></a>
   </h2>
   <small>
-    <a href="#users/<%= user.id %>">
-      @<%= user.escape('username') %>
-    </a>
+    <a href="#users/<%= user.id %>">@<%= user.escape('username') %></a>
   </small>
 </section>
 

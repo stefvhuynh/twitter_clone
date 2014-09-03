@@ -1,12 +1,6 @@
 <main class="clear-fix">
   <section class="left-section">
-    <img class="avatar" src="<%= current_user.avatar.url %>">
-    <h2>
-      <a href="<%= user_url(current_user) %>"><%= current_user.name %></a>
-    </h2>
-    <small>
-      <a href="<%= user_url(current_user) %>">@<%= current_user.username %></a>
-    </small>
+    <%= render partial: 'pages/user_card', locals: { user: current_user } %>
   </section>
 
   <section class="center-section">

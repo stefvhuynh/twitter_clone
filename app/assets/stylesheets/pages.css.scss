@@ -2,3 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-card > .user-card-banner {
+  height: 90px;
+  background: #105B92;
+  border-radius: 5px 5px 0 0;
+}
+
+.user-card-main {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-bottom: 0;
+  width: 268px;
+  padding: 10px;
+}
+
+.user-card-info {
+  position: relative;
+  height: 45px;
+}
+
+.user-card-avatar {
+  position: absolute;
+  top: -40px;
+}
+
+.user-card-info-name {
+  position: absolute;
+  left: 85px;
+  top: -5px;
+}
+
+.user-card small {
+  font-size: 12px;
+}
+
+.user-card-links > li {
+  float: left;
+}
+
+.user-card-links a {
+  display: block;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.user-card-links a:hover {
+  text-decoration: none;
+}
+
+.user-card-links a h3 {
+  color: #0D70A4;
+}
+
+.user-card-footer {
+  background: #DFEEF4;
+  padding: 10px;
+  border: 1px solid #B3D8E7;
+  border-radius: 0 0 5px 5px;
+}
+
+.user-card-footer > div {
+  background: #fff;
+  border: 1px solid #B3D8E7;
+  border-radius: 5px;
+  padding: 10px;
+  color: #758695;
+}
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 class Tweet < ActiveRecord::Base
   include PgSearch
-  
+
   belongs_to :user
   has_many :mentions, dependent: :destroy, inverse_of: :tweet
   has_many(
@@ -19,7 +19,7 @@ class Tweet < ActiveRecord::Base
 
   validates :body, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
-  
+
   default_scope { order(created_at: :desc) }
   before_validation :parse_for_users, :parse_for_hashtags
   multisearchable against: :body

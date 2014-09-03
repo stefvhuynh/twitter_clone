@@ -1,0 +1,54 @@
+<div class="user-card">
+  <header class="user-card-banner"></header>
+  <main class="user-card-main">
+    <div class="user-card-info">
+      <img class="user-card-avatar avatar"
+        src="<%= user.avatar.url %>">
+
+      <div class="user-card-info-name">
+        <h3>
+          <a href="<%= user_url(user) %>">
+            <%= user.name %>
+          </a>
+        </h3>
+        <small>
+          <a href="<%= user_url(user) %>">
+            @<%= user.username %>
+          </a>
+        </small>
+      </div>
+    </div>
+
+    <ul class="user-card-links clear-fix">
+      <li>
+        <a href="<%= user_url(user) %>">
+          <small>TWEETS</small>
+          <h3><%= user.tweets.count %></h3>
+        </a>
+      </li>
+      <li>
+        <a href="<%= following_user_url(user) %>">
+          <small>FOLLOWING</small>
+          <h3><%= user.followeds.count %></h3>
+        </a>
+      </li>
+      <li>
+        <a href="<%= followers_user_url(user) %>">
+          <small>FOLLOWERS</small>
+          <h3><%= user.followers.count %></h3>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="user-card-footer">
+    <div>Compose new Tweet...</div>
+  </footer>
+</div>
+
+
+
+
+
+
+
