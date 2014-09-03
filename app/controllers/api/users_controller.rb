@@ -8,26 +8,29 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      sign_in!(@user)
-      redirect_to root_url
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #
+  #   if @user.save
+  #     sign_in!(@user)
+  #     redirect_to root_url
+  #   else
+  #     flash.now[:errors] = @user.errors.full_messages
+  #     render :new
+  #   end
+  # end
 
   def update
+    p user_params
+
     if current_user.update(user_params)
       flash.now[:notices] = ['Thanks, your settings have been saved.']
     else
       flash.now[:errors] = current_user.errors.full_messages
     end
 
-    render :edit
+    @user = current_user
+    render :show
   end
 
   def destroy
