@@ -1,0 +1,47 @@
+<div class="user-card">
+  <header class="user-card-banner"></header>
+  <main class="user-card-main">
+    <div class="user-card-info">
+      <img class="user-card-avatar avatar"
+        src="<%= user.escape('avatar_url') %>">
+
+      <div class="user-card-info-name">
+        <h3>
+          <a href="#users/<%= user.id %>">
+            <%= user.escape('name') %>
+          </a>
+        </h3>
+        <small>
+          <a href="#users<%= user.id %>">
+            @<%= user.escape('username') %>
+          </a>
+        </small>
+      </div>
+    </div>
+
+    <ul class="user-card-links clear-fix">
+      <li>
+        <a href="#users/<%= user.id %>">
+          <small>TWEETS</small>
+          <h3><%= user.tweets().length %></h3>
+        </a>
+      </li>
+      <li>
+        <a href="#users/<%= user.id %>">
+          <small>FOLLOWING</small>
+          <h3><%= user.followeds().length %></h3>
+        </a>
+      </li>
+      <li>
+        <a href="#users/<%= user.id %>">
+          <small>FOLLOWERS</small>
+          <h3><%= user.followers().length %></h3>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="user-card-footer">
+    <div>Compose new Tweet...</div>
+  </footer>
+</div>

@@ -1,12 +1,5 @@
 <section class="left-section">
-  <img class="avatar"
-    src="<%= user.escape('avatar_url') %>">
-  <h2>
-    <a href="#users/<%= user.id %>"><%= user.escape('name') %></a>
-  </h2>
-  <small>
-    <a href="#users/<%= user.id %>">@<%= user.escape('username') %></a>
-  </small>
+  <%= JST['pages/user_card']({ user: user }) %>
 </section>
 
 <section class="center-section">
