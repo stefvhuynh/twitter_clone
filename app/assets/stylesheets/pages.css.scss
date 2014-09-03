@@ -60,7 +60,7 @@
   border-radius: 0 0 5px 5px;
 }
 
-.user-card-footer > div {
+.user-card-footer #user-card-new-tweet {
   background: #fff;
   border: 1px solid #B3D8E7;
   border-radius: 5px;
@@ -68,8 +68,17 @@
   color: #758695;
 }
 
+.user-card-footer #user-card-new-tweet:hover {
+  cursor: text;
+}
+
 .user-card-footer .new-tweet-textbox {
-  width: 100%;
+  width: 252px;
+}
+
+.user-card-button.new-tweet-button.blue-button {
+  position: static;
+  float: right;
 }
 
 

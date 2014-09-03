@@ -14,7 +14,7 @@ class Api::PagesController < ApplicationController
     @current_user = current_user
     @feed = user_tweets + followed_tweets
     @feed.sort_by! { |tweet| Time.now - tweet.created_at }
-
+    sleep 3
     render :feed
   end
 end
