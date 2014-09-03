@@ -13,8 +13,8 @@ TwitterClone.Collections.Tweets = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
-      callback(tweet);
       tweet.fetch();
+      callback(tweet);
     }
 
     return tweet;

@@ -15,15 +15,8 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
 
-    var tweetData = $(event.target).serializeJSON();
-    // tweetData['tweet']['user_id'] = TwitterClone.currentUser.id
-
-    var newTweet = new TwitterClone.Models.Tweet();
-    newTweet.save(tweetData['tweet'], {
-      success: function(model, response) {
-
-      }
-    });
+    var tweetData = $(event.target).serializeJSON().tweet;
+    TwitterClone.currentUser.tweets().create(tweetData);
 
     this.remove();
   },

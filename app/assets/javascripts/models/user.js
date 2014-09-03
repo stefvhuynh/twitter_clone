@@ -1,26 +1,6 @@
 TwitterClone.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
 
-  // getOrFetchFeed: function() {
-  //   if (!this._feed) {
-  //     this._feed = new TwitterClone.Subsets.Feed([], {
-  //       user: this,
-  //       parentCollection: TwitterClone.tweets
-  //     });
-  //
-  //     var that = this;
-  //     this._feed.add(this.tweets().toJSON());
-  //
-  //     this.followeds().forEach(function(followed) {
-  //       TwitterClone.users.getOrFetch(followed.id, function(user) {
-  //         that._feed.add(user.tweets().toJSON());
-  //       });
-  //     });
-  //   }
-  //
-  //   return this._feed;
-  // },
-
   tweets: function() {
     if (!this._tweets) {
       this._tweets = new TwitterClone.Subsets.UserTweets([], {
