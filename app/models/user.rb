@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include PgSearch
   multisearchable against: [:name, :username]
-  
+
   has_many :tweets
   has_many :mentions, as: :mentionable, dependent: :destroy
   has_many :followed_follows, class_name: 'Follow', foreign_key: :follower_id
@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :follower_follows, source: :follower
   has_many :followed_tweets, through: :followeds, source: :tweets
 
-  has_attached_file :avatar, default_url: '/images/missing.png'
-  
+  has_attached_file(
+    :avatar,
+    default_url: "/images/missing#{rand(0..4)}.png"
+  )
+
   validates_attachment_content_type(
     :avatar,
     content_type: /\Aimage\/.*\Z/
@@ -72,12 +75,11 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
-  
+
   def username_can_only_contain_valid_characters
     if self.username =~ /[^a-zA-Z0-9_]/
-      errors[:username] << 'Username can only contain letters, 
+      errors[:username] << 'Username can only contain letters,
         numbers, and underscores.'
     end
   end
-
 end
