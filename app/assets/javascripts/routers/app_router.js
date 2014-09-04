@@ -52,7 +52,10 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
       url: '/api/search?' + query,
       dataType: 'json',
       success: function(data) {
-        console.log(data);
+        TwitterClone.users.add(data.users);
+        TwitterClone.tweets.add(data.tweets);
+
+        var view = new TwitterClone.Views.SearchShow()
       }
     });
   },
@@ -64,4 +67,9 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     this.$rootEl.html(view.render().$el);
   }
 });
+
+
+
+
+
 
