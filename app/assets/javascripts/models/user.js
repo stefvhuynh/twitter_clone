@@ -34,6 +34,12 @@ TwitterClone.Models.User = Backbone.Model.extend({
     return this._followers;
   },
 
+  toJSON: function() {
+    return {
+      user: _.clone(this.attributes)
+    }
+  },
+
   parse: function(response) {
     if (response.tweets) {
       this.tweets().set(response.tweets, { parse: true });

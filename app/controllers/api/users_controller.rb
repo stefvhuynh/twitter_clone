@@ -21,8 +21,6 @@ class Api::UsersController < ApplicationController
   # end
 
   def update
-    p user_params
-
     if current_user.update(user_params)
       flash.now[:notices] = ['Thanks, your settings have been saved.']
     else

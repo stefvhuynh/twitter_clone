@@ -1,12 +1,15 @@
 TwitterClone.Views.UserEdit = Backbone.View.extend({
   template: JST['users/edit'],
+  tagName: 'main',
+  className: 'edit-user clear-fix',
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
   },
 
   events: {
-    'submit form': 'submit'
+    'submit form': 'submit',
+    'change #edit-avatar': 'fileSelect'
   },
 
   render: function() {
@@ -17,8 +20,33 @@ TwitterClone.Views.UserEdit = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
+
+    var that = this;
     var userData = $(event.target).serializeJSON().user;
-    TwitterClone.users.get(this.model.id).save(userData);
-    // NOT UPDATING HOME PAGE & GETTING SERVER ERROR
+
+    this.model.save(userData, {
+      success: function() {
+        delete that.model.attributes['avatar'];
+      }
+    });
+  },
+
+  fileSelect: function(event) {
+    var that = this;
+    var imageFile = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+      that.model.set('avatar', this.result);
+    };
+
+    if (imageFile) reader.readAsDataURL(imageFile);
   }
 });
+
+
+
+
+
+
+
