@@ -24,7 +24,7 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
 
   toJSON: function() {
     return {
-      user: _.clone(this.attributes)
+      tweet: _.clone(this.attributes)
     }
   },
 

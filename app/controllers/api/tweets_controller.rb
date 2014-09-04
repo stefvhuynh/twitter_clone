@@ -13,7 +13,7 @@ class Api::TweetsController < ApplicationController
     if @tweet.save
       redirect_to root_url
     else
-      flash.now[:errors] = @tweet.errors.full_messages
+      render json: { errors: current_user.errors.full_messages }, status: 422
       render :new
     end
   end
