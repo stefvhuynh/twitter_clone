@@ -54,7 +54,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def display
-    display_text = self.body
+    display_text = ERB::Util.html_escape(self.body)
     insert_user_links!(display_text)
     insert_hashtag_links!(display_text)
     display_text.html_safe
@@ -65,7 +65,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '@' + mentioned_user.username,
         # When using backbone, include the # in front of users.
-        "<a href='/#users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
+        "<a href='#users/#{mentioned_user.id}'>@#{mentioned_user.username}</a>"
       )
     end
   end
@@ -75,7 +75,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '#' + mentioned_hashtag.name,
         # When using backbone, include the # in front of hashtags.
-        "<a href='/#hashtags/#{mentioned_hashtag.id}'>
+        "<a href='/search?query=%23#{mentioned_hashtag.name}'>
           ##{mentioned_hashtag.name}</a>"
       )
     end

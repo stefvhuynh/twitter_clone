@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root to: 'pages#home'
   root to: 'pages#root'
   get 'mentions', to: 'pages#mentions'
-  get 'search', to: 'pages#search'
+  get 'search', to: 'pages#search', as: 'search'
 
   get 'auth/facebook/callback', to: 'sessions#oauth'
 

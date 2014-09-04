@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @query = params[:search][:query]
+    @query = params[:query]
     @search_results = PgSearch.multisearch(@query).map(&:searchable)
 
     if @query.first == '#'
