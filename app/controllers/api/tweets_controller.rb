@@ -11,10 +11,9 @@ class Api::TweetsController < ApplicationController
     @tweet = current_user.tweets.build(tweet_params)
 
     if @tweet.save
-      redirect_to root_url
+      render :show
     else
-      render json: { errors: current_user.errors.full_messages }, status: 422
-      render :new
+      render json: { errors: @tweet.errors.full_messages }, status: 422
     end
   end
 
