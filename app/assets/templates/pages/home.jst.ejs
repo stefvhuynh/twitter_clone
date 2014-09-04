@@ -5,8 +5,8 @@
 <section class="center-section">
   <ul class="tweets-list">
     <li class="tweets-list-top"><h1>Tweets</h1></li>
-    <% tweets.forEach(function(tweet) { %>
-      <%= JST['tweets/preview']({ user: tweet._user, tweet: tweet }) %>
+    <% tweets.each(function(tweet) { %>
+      <%= JST['tweets/preview']({ user: tweet.user(), tweet: tweet }) %>
     <% }); %>
   </ul>
 </section>

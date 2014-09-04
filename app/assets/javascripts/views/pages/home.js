@@ -9,8 +9,9 @@ TwitterClone.Views.Home = Backbone.View.extend({
     'submit #user-card-new-tweet-form': 'submit'
   },
 
-  initialize: function() {
+  initialize: function(options) {
     this.listenTo(TwitterClone.feed, 'sync add remove', this.render);
+    this.listenTo(TwitterClone.currentUser, 'sync', this.render);
   },
 
   render: function() {

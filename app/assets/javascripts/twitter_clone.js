@@ -5,19 +5,16 @@ window.TwitterClone = {
   Views: {},
   Routers: {},
 
-  initialize: function() {
+  initialize: function(options) {
     TwitterClone.users = new TwitterClone.Collections.Users();
     TwitterClone.tweets = new TwitterClone.Collections.Tweets();
-
-    TwitterClone.currentUser = new TwitterClone.Models.User({
-      id: window.currentUserId
-    });
-
     TwitterClone.feed = new TwitterClone.Subsets.Feed([], {
       parentCollection: TwitterClone.tweets
     });
 
-    TwitterClone.feed.fetch();
+    TwitterClone.currentUser = new TwitterClone.Models.User({
+      id: window.currentUserId
+    });
 
     TwitterClone.currentUser.fetch({
       success: function(model, response) {

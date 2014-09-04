@@ -1,6 +1,10 @@
 json.extract! @user, :id, :name, :username
 json.avatar_url @user.avatar
 
+if @user == current_user
+  json.email @user.email
+end
+
 json.tweets @user.tweets
   .includes(:mentioned_users, :mentioned_hashtags) do |tweet|
 
@@ -16,6 +20,9 @@ json.tweets @user.tweets
   #   json.extract! mentioned_hashtag, :id, :name
   # end
 end
+
+# Consider splitting these two out into different ajax calls to limit the
+# amount of data being sent down.
 
 json.followeds @user.followeds do |followed|
   json.extract! followed, :id, :name, :username
