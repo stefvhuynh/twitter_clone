@@ -75,7 +75,7 @@ class Tweet < ActiveRecord::Base
       display_text.gsub!(
         '#' + mentioned_hashtag.name,
         # When using backbone, include the # in front of hashtags.
-        "<a href='/search?query=%23#{mentioned_hashtag.name}'>
+        "<a href='#search?query=%23#{mentioned_hashtag.name}'>
           ##{mentioned_hashtag.name}</a>"
       )
     end

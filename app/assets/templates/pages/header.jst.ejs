@@ -1,0 +1,31 @@
+<header class="signed-in-header">
+  <nav class="clear-fix">
+    <ul class="left clear-fix">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Discover</a></li>
+      <li><a href="#users/<%= TwitterClone.currentUser.id %>">Me</a></li>
+    </ul>
+
+    <ul class="center">
+      <li>logo</li>
+    </ul>
+
+    <ul class="right clear-fix">
+      <li>
+        <form id="search-form">
+          <input class="search-bar"
+            type="text"
+            name="query"
+            placeholder="Search Twitter">
+        </form>
+      </li>
+      <li><a href="#">Messages</a></li>
+      <li><a href="#edit">Settings</a></li>
+      <li><button>Sign out</button></li>
+      <li>
+        <a id="new-tweet" href="#tweets/new">New Tweet</a>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -15,12 +15,13 @@ Rails.application.routes.draw do
   # root to: 'pages#home'
   root to: 'pages#root'
   get 'mentions', to: 'pages#mentions'
-  get 'search', to: 'pages#search', as: 'search'
+  get 'search', to: 'pages#search'
 
   get 'auth/facebook/callback', to: 'sessions#oauth'
 
   namespace :api, defaults: { format: :json } do
     get 'feed', to: 'pages#feed'
+    get 'search', to: 'pages#search'
     resources :users, only: [:show, :update, :destroy]
     resources :tweets, except: [:index, :new, :edit, :update]
   end

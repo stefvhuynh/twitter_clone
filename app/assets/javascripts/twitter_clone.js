@@ -19,6 +19,10 @@ window.TwitterClone = {
     TwitterClone.currentUser.fetch({
       success: function(model, response) {
         TwitterClone.users.add(model);
+
+        var header = new TwitterClone.Views.Header()
+        $('#header').html(header.render().$el);
+
         new TwitterClone.Routers.AppRouter({ $rootEl: $('#content') });
         Backbone.history.start();
       }

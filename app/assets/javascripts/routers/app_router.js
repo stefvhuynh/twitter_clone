@@ -10,7 +10,7 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     'users/:id': 'userShow',
     'tweets/new': 'tweetNew',
     'tweets/:id': 'tweetShow',
-    'search/:query': 'searchShow'
+    'search': 'searchShow'
   },
 
   home: function() {
@@ -46,8 +46,15 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     }.bind(this));
   },
 
-  search: function(query) {
-
+  searchShow: function(query) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/search?' + query,
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+      }
+    });
   },
 
   _swapView: function(view) {
