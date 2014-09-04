@@ -1,12 +1,36 @@
-<h2>Results for <%= @query %></h2>
+<main class="search-results clear-fix">
+  <section class="left-section">
+    <%= render partial: 'pages/user_card', locals: { user: current_user } %>
+  </section>
 
-<ul>
-  <% @search_results.each do |result| %>
-    <li>
-      <%= render partial: 'pages/search_result', locals: { result: result } %>
-    </li>
-  <% end %>
-</ul>
+  <section class="center-section">
+    <ul>
+      <li class="search-list-top">
+        <h2>Results for <strong><%= @query %></strong></h2>
+        <h5>Top / All</h5>
+      </li>
+
+      <div class="users-list-container">
+        <h4>People</h4>
+        <ul class="users-list clear-fix">
+          <% @users.each do |user| %>
+            <li>
+              <%= render partial: 'pages/user_result', locals: { user: user } %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <ul class="tweets-list">
+        <% @tweets.each do |tweet| %>
+          <li>
+            <%= render partial: 'tweets/preview', locals: { tweet: tweet } %>
+          </li>
+        <% end %>
+      </ul>
+    </ul>
+  </section>
+</main>
 
 
 

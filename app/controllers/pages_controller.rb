@@ -28,14 +28,15 @@ class PagesController < ApplicationController
 
   def search
     @query = params[:query]
-    @search_results = PgSearch.multisearch(@query).map(&:searchable)
+    search_results = PgSearch.multisearch(@query)
+      .includes(:searchable)
+      .map(&:searchable)
+
+    @users = search_results.select { |result| result.is_a?(User) }
+    @tweets = search_results.select { |result| result.is_a?(Tweet) }
 
     if @query.first == '#'
-      hashtag = Hashtag.find_by_name(@query[1..-1])
-
-      unless hashtag.nil?
-        @search_results = (hashtag.mentioned_tweets + @search_results).uniq
-      end
+      @tweets = (hashtag.mentioned_tweets + @tweets).uniq unless hashtag.nil?
     end
   end
 

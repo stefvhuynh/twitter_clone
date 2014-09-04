@@ -9,7 +9,8 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     'edit': 'currentUserEdit',
     'users/:id': 'userShow',
     'tweets/new': 'tweetNew',
-    'tweets/:id': 'tweetShow'
+    'tweets/:id': 'tweetShow',
+    'search/:query': 'searchShow'
   },
 
   home: function() {
@@ -33,6 +34,11 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     }.bind(this));
   },
 
+  tweetNew: function() {
+    var view = new TwitterClone.Views.TweetNew();
+    this.$rootEl.append(view.render().$el);
+  },
+
   tweetShow: function(id) {
     TwitterClone.tweets.getOrFetch(id, function(tweet) {
       var view = new TwitterClone.Views.TweetShow({ model: tweet });
@@ -40,9 +46,8 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     }.bind(this));
   },
 
-  tweetNew: function() {
-    var view = new TwitterClone.Views.TweetNew();
-    this.$rootEl.append(view.render().$el);
+  search: function(query) {
+
   },
 
   _swapView: function(view) {

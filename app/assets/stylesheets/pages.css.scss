@@ -81,9 +81,78 @@
   float: right;
 }
 
+// User search results
 
+.search-results .search-list-top {
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px 10px 0 0;
+  padding: 15px;
+}
 
+.search-list-top h2 {
+  margin-bottom: 5px;
+  color: #666;
+}
 
+.search-results .users-list-container {
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 40px;
+  position: relative;
+}
+
+.search-results .users-list-container > h4 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: bold;
+  color: #999;
+}
+
+.search-results .users-list {
+  display: inline-block;
+  text-align: left;
+}
+
+.user-result.user-container {
+  height: 195px;
+  width: 195px;
+}
+
+.user-result.user-container .banner {
+  height: 60px;
+}
+
+.user-result.user-container .avatar-container {
+  position: static;
+  float: none;
+}
+
+.user-result.user-container .avatar-container .avatar {
+  position: static;
+  margin-top: -30px;
+  margin-left: 10px;
+}
+
+.user-result.user-container h3 {
+  font-size: 14px;
+}
+
+.user-result.user-container main {
+  margin: 0;
+  padding: 0 15px;
+  float: none;
+}
+
+.user-result.user-container > main > .follow-button-container {
+  float: none;
+  padding: 10px 0;
+}
 
 
 

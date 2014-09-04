@@ -1,0 +1,16 @@
+<div class="user-result user-container">
+  <header>
+    <div class="banner"></div>
+    <div class="avatar-container">
+      <img class="follow-avatar avatar" src="<%= user.avatar.url %>">
+    </div>
+  </header>
+
+  <main>
+    <h3><a href="<%= user_url(user) %>"><%= user.name %></a></h3>
+    <small><a href="<%= user_url(user) %>">@<%= user.username %></a></small>
+    <li class="follow-button-container">
+      <%= render partial: 'users/follow_button', locals: { user: user } %>
+    </li>
+  </main>
+</div>

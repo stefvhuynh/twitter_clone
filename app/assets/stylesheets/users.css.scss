@@ -86,13 +86,13 @@
 
 // Follows list
 
-.follow-list > li{
+.users-list > li{
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
-.follow-container {
+.user-container {
   border: 1px solid #ccc;
   background: #fff;
   border-radius: 10px;
@@ -100,39 +100,39 @@
   height: 278px;
 }
 
-.follow-container .banner {
+.user-container .banner {
   height: 100px;
   background: #4ce;
   border-radius: 10px 10px 0 0;
 }
 
-.follow-container .avatar-container {
+.user-container .avatar-container {
   float: left;
   position: relative;
 }
 
-.follow-container .follow-avatar {
+.user-container .follow-avatar {
   position: absolute;
   top: -35px;
   left: 10px;
 }
 
-.follow-container .follow-button-container {
+.user-container .follow-button-container {
   float: right;
   padding: 15px;
 }
 
-.follow-container .follow-button-container .follow-button {
+.user-container .follow-button-container .follow-button {
   font-size: 12px;
   padding: 5px 20px;
 }
 
-.follow-container .follow-button-container .unfollow-button {
+.user-container .follow-button-container .unfollow-button {
   font-size: 12px;
   padding: 5px 20px;
 }
 
-.follow-container > main {
+.user-container > main {
   margin-top: -20px;
   width: 253px;
 }
