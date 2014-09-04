@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-  # before_filter :require_signed_in!, except: [:show, :new, :create]
-  # before_filter :require_signed_out!, only: [:new, :create]
 
   def show
     @user = User.find(params[:id])
@@ -8,27 +6,13 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
-  # def create
-  #   @user = User.new(user_params)
-  #
-  #   if @user.save
-  #     sign_in!(@user)
-  #     redirect_to root_url
-  #   else
-  #     flash.now[:errors] = @user.errors.full_messages
-  #     render :new
-  #   end
-  # end
-
   def update
     if current_user.update(user_params)
-      flash.now[:notices] = ['Thanks, your settings have been saved.']
+      @user = current_user
+      render :show
     else
-      flash.now[:errors] = current_user.errors.full_messages
+      render json: { errors: current_user.errors.full_messages }, status: 422
     end
-
-    @user = current_user
-    render :show
   end
 
   def destroy
