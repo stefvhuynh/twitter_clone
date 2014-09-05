@@ -105,7 +105,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
       .addClass('blue-button')
       .removeClass('follow-button')
       .addClass('unfollow-button')
-      .html('Following');
+      .html('<span></span>');
   },
 
   remove: function() {

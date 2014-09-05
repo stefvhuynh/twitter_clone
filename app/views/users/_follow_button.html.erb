@@ -2,7 +2,9 @@
   <form action="<%= user_follows_url(user) %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <%= authenticity_token %>
-    <button class="unfollow-button blue-button">Following</button>
+    <button class="unfollow-button blue-button">
+      <span>Following</span>
+    </button>
   </form>
 <% else %>
   <form action="<%= user_follows_url(user) %>" method="POST">
