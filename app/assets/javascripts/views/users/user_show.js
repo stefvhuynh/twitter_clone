@@ -108,6 +108,20 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
       .html('<span></span>');
   },
 
+  // listenForScroll: function() {
+//     $(window).off('scroll');
+//     var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+//     $(window).on('scroll', throttledCallback);
+//   },
+//
+//   nextPage: function() {
+//     var that = this;
+//
+//     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+//       if (this.model.tweets())
+//     }
+//   },
+
   remove: function() {
     this.currentSubview.remove();
     Backbone.View.prototype.remove.call(this);

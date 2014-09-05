@@ -5,8 +5,7 @@ if @user == current_user
   json.email @user.email
 end
 
-json.tweets @user.tweets
-  .includes(:mentioned_users, :mentioned_hashtags) do |tweet|
+json.tweets @tweets do |tweet|
 
   json.extract! tweet, :id, :user_id, :created_at
   json.display tweet.display
