@@ -9,8 +9,8 @@
   <main>
     <h3><a href="<%= user_url(user) %>"><%= user.name %></a></h3>
     <small><a href="<%= user_url(user) %>">@<%= user.username %></a></small>
-    <li class="follow-button-container">
+    <div class="follow-button-container">
       <%= render partial: 'users/follow_button', locals: { user: user } %>
-    </li>
+    </div>
   </main>
 </div>

@@ -7,7 +7,7 @@
           src="<%= user.escape('avatar_url') %>">
       </li>
       <li class="follow-button-container">
-        <!-- FOLLOW BUTTON... -->
+        <%= JST['pages/follow_button']({ user: user }) %>
       </li>
     </ul>
   </header>

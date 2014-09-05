@@ -11,8 +11,8 @@
     <small>
       <a href="#users/<%= user.id %>">@<%= user.escape('username') %></a>
     </small>
-    <li class="follow-button-container">
-      <!-- FOLLOW BUTTON -->
-    </li>
+    <div class="follow-button-container">
+      <%= JST['pages/follow_button']({ user: user }) %>
+    </div>
   </main>
 </div>

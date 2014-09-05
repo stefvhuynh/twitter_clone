@@ -9,7 +9,7 @@
       <% if (user === TwitterClone.currentUser) { %>
         <a href="#">Edit profile</a>
       <% } else { %>
-        <!-- FOLLOW BUTTON... -->
+        <%= JST['pages/follow_button']({ user: user }) %>
       <% } %>
     </li>
   </ul>
