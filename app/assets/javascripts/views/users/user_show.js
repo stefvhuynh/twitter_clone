@@ -5,8 +5,8 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     'click #tweets-link': 'renderTweets',
     'click #following-link': 'renderFolloweds',
     'click #followers-link': 'renderFollowers',
-    'submit #follow-button-form': 'follow',
-    'submit #unfollow-button-form': 'unfollow'
+    'submit .unfollow-button-form': 'unfollow',
+    'submit .follow-button-form': 'follow'
   },
 
   initialize: function() {
@@ -56,23 +56,9 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     this._swapSubview(subview);
   },
 
-  follow: function(event) {
-    event.preventDefault();
-    var followData = $(event.target).serializeJSON();
-    console.log(followData);
-
-    $.ajax({
-      type: 'POST',
-      url: '/api/follows',
-      data: followData,
-      success: function(data) {
-
-      }
-    });
-  },
-
   unfollow: function(event) {
     event.preventDefault();
+    var that = this;
     var followData = $(event.target).serializeJSON();
 
     $.ajax({
@@ -80,9 +66,46 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
       url: '/api/follows',
       data: followData,
       success: function(data) {
-
+        var unfollowed = TwitterClone.users.add(data, { merge: true });
+        unfollowed.followers().remove(that.model);
+        that.model.followeds().remove(unfollowed);
       }
     });
+
+    $(event.target).removeClass('unfollow-button-form')
+      .addClass('follow-button-form')
+      .find('.unfollow-button')
+      .removeClass('blue-button')
+      .addClass('white-button')
+      .removeClass('unfollow-button')
+      .addClass('follow-button')
+      .html('Follow');
+  },
+
+  follow: function(event) {
+    event.preventDefault();
+    var that = this;
+    var followData = $(event.target).serializeJSON();
+
+    $.ajax({
+      type: 'POST',
+      url: '/api/follows',
+      data: followData,
+      success: function(data) {
+        var followed = TwitterClone.users.add(data, { merge: true });
+        followed.followers().add(that.model);
+        that.model.followeds().add(followed);
+      }
+    });
+
+    $(event.target).removeClass('follow-button-form')
+      .addClass('unfollow-button-form')
+      .find('.follow-button')
+      .removeClass('white-button')
+      .addClass('blue-button')
+      .removeClass('follow-button')
+      .addClass('unfollow-button')
+      .html('Following');
   },
 
   remove: function() {

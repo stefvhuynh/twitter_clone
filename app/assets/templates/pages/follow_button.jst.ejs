@@ -1,10 +1,10 @@
 <% if (TwitterClone.currentUser.followeds().contains(user)) { %>
-  <form id="unfollow-button-form">
+  <form class="unfollow-button-form">
     <input type="hidden" name="user_id" value="<%= user.id %>">
     <button class="unfollow-button blue-button">Following</button>
   </form>
 <% } else { %>
-  <form id="follow-button-form">
+  <form class="follow-button-form">
     <input type="hidden" name="user_id" value="<%= user.id %>">
     <button class="follow-button white-button">Follow</button>
   </form>

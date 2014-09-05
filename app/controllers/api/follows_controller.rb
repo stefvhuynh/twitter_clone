@@ -6,11 +6,12 @@ class Api::FollowsController < ApplicationController
       follower_id: current_user.id
     )
 
-    unless follow.save
-      flash[:errors] = follow.errors.full_messages
+    if follow.save
+      @user = User.find(params[:user_id])
+      render :show
+    else
+      render json: { errors: follow.errors.full_messages }, status: 422
     end
-
-    redirect_to user_url(params[:user_id])
   end
 
   def destroy
@@ -18,11 +19,12 @@ class Api::FollowsController < ApplicationController
       followed_id: params[:user_id]
     ).first
 
-    unless follow.destroy
-      flash[:errors] = follow.errors.full_messages
+    if follow.destroy
+      @user = User.find(params[:user_id])
+      render :show
+    else
+      render json: { errors: follow.errors.full_messages }, status: 422
     end
-
-    redirect_to user_url(params[:user_id])
   end
 
 end
