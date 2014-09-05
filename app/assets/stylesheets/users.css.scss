@@ -48,6 +48,12 @@
   background: #fff;
 }
 
+.user-header nav {
+  width: 900px;
+  padding: 0 15px;
+  margin: auto;
+}
+
 .user-left-section {
   position: relative;
   float: left;
@@ -56,15 +62,15 @@
   padding-left: 10px;
 }
 
-.user-header > ul {
+.user-header ul {
   float: right;
 }
 
-.user-header > ul > li {
+.user-header ul > li {
   float: left;
 }
 
-.user-header > ul > li > a {
+.user-header ul > li > a {
   padding: 15px;
   display: block;
 }
@@ -79,6 +85,10 @@
 
 // Buttons
 
+.unfollow-button.blue-button {
+  width: 70px;
+}
+
 .unfollow-button.blue-button span:after {
   content: 'Following';
   color: #fff;
@@ -92,6 +102,12 @@
 
 .unfollow-button.blue-button:hover span:after {
   content: 'Unfollow';
+}
+
+.profile-button-container .white-button,
+.profile-button-container .blue-button {
+  padding: 10px 15px;
+  margin-top: 4px;
 }
 
 // Follows list

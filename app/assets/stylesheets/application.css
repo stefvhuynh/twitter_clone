@@ -137,10 +137,12 @@ main > .center-section {
   border-radius: 5px;
   background: #5ae;
   border: 1px solid #27c;
+  display: block;
 }
 
 .blue-button:hover {
   background: #49d;
+  text-decoration: none;
 }
 
 .blue-button:focus {
@@ -154,10 +156,12 @@ main > .center-section {
   border-radius: 5px;
   background: #eee;
   border: 1px solid #ccc;
+  display: block;
 }
 
 .white-button:hover {
   background: #ddd;
+  text-decoration: none;
 }
 
 .exit:hover {

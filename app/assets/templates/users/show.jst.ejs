@@ -1,18 +1,24 @@
 <header class="user-header-banner"></header>
 
 <header class="user-header clear-fix">
-  <ul class="clear-fix">
-    <li><a id="tweets-link" href="#">TWEETS</a></li>
-    <li><a id="following-link" href="#">FOLLOWING</a></li>
-    <li><a id="followers-link" href="#">FOLLOWERS</a></li>
-    <li>
-      <% if (user === TwitterClone.currentUser) { %>
-        <a href="#">Edit profile</a>
-      <% } else { %>
-        <%= JST['pages/follow_button']({ user: user }) %>
-      <% } %>
-    </li>
-  </ul>
+  <nav>
+    <ul class="clear-fix">
+      <li><a id="tweets-link" href="#">TWEETS</a></li>
+      <li><a id="following-link" href="#">FOLLOWING</a></li>
+      <li><a id="followers-link" href="#">FOLLOWERS</a></li>
+      <li>
+        <% if (user === TwitterClone.currentUser) { %>
+          <div class="profile-button-container">
+            <a href="#edit" class="white-button">Edit profile</a>
+          </div>
+        <% } else { %>
+          <div class="profile-button-container">
+            <%= JST['pages/follow_button']({ user: user }) %>
+          </div>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <main class="clear-fix">
