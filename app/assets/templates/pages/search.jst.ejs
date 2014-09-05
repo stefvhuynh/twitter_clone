@@ -1,0 +1,37 @@
+<section class="left-section">
+  <%= JST['pages/user_card']({ user: TwitterClone.currentUser }) %>
+</section>
+
+<section class="center-section">
+  <ul>
+    <li class="search-list-top">
+      <h2>Results for <strong><%= decodeURIComponent(query) %></strong></h2>
+      <h5>Top / All</h5>
+    </li>
+
+    <% if (users.length > 0) { %>
+      <div class="users-list-container">
+        <h4>People</h4>
+        <ul class="users-list clear-fix">
+          <% users.forEach(function(user) { %>
+            <li>
+              <%= JST['pages/user_result']({ user: user }) %>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+
+    <ul class="tweets-list">
+      <% tweets.forEach(function(tweet) { %>
+        <li>
+          <%= JST['tweets/preview']({ user: tweet.user(), tweet: tweet }) %>
+        </li>
+      <% }); %>
+    </ul>
+  </ul>
+</section>
+
+
+
+

@@ -28,6 +28,7 @@ class Api::PagesController < ApplicationController
     @tweets = search_results.select { |result| result.is_a?(Tweet) }
 
     if @query.first == '#'
+      hashtag = Hashtag.find_by_name(@query[1..-1])
       @tweets = (hashtag.mentioned_tweets + @tweets).uniq unless hashtag.nil?
     end
 

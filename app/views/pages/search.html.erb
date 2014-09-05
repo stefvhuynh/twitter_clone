@@ -10,16 +10,19 @@
         <h5>Top / All</h5>
       </li>
 
-      <div class="users-list-container">
-        <h4>People</h4>
-        <ul class="users-list clear-fix">
-          <% @users.each do |user| %>
-            <li>
-              <%= render partial: 'pages/user_result', locals: { user: user } %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <% unless @users.empty? %>
+        <div class="users-list-container">
+          <h4>People</h4>
+          <ul class="users-list clear-fix">
+            <% @users.each do |user| %>
+              <li>
+                <%= render partial: 'pages/user_result',
+                  locals: { user: user } %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
       <ul class="tweets-list">
         <% @tweets.each do |tweet| %>
