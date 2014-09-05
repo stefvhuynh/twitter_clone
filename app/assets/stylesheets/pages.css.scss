@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-card-banner {
+.user-card .user-card-banner {
   height: 90px;
   background: #105B92;
   border-radius: 5px 5px 0 0;
+  padding: 0;
 }
 
 .user-card-main {
