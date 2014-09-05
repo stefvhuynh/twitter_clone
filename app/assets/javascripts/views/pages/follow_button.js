@@ -3,5 +3,6 @@ TwitterClone.Views.FollowButton = Backbone.View.extend({
 
   render: function() {
     var content = this.template({ user: this.model });
+
   }
 });
