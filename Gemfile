@@ -16,6 +16,7 @@ gem 'omniauth-facebook'
 gem 'backbone-on-rails'
 gem 'faker'
 gem 'pg_search'
+gem 'kaminari'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development

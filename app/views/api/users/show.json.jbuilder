@@ -15,10 +15,6 @@ json.tweets @user.tweets
     json.extract! mentioned_user, :id, :name, :username
     json.avatar_url mentioned_user.avatar
   end
-
-  # json.mentioned_hashtags tweet.mentioned_hashtags do |mentioned_hashtag|
-  #   json.extract! mentioned_hashtag, :id, :name
-  # end
 end
 
 # Consider splitting these two out into different ajax calls to limit the
