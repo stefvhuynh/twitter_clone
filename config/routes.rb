@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-  # resources :hashtags, only: :show
 
   shallow do
     resources :users do
@@ -22,7 +21,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get 'feed', to: 'pages#feed'
     get 'search', to: 'pages#search'
+
     resources :users, only: [:show, :update, :destroy]
     resources :tweets, except: [:index, :new, :edit, :update]
+    resource :follows, only: [:create, :destroy]
   end
 end
