@@ -1,5 +1,6 @@
 TwitterClone.Views.SearchShow = Backbone.View.extend({
   template: JST['pages/search'],
+  tweetsTemplate: JST['tweets/tweets'],
   tagName: 'main',
   className: 'search-results clear-fix',
 
@@ -15,19 +16,24 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
     this.pageNumber = options.pageNumber;
     this.totalPages = options.totalPages;
     
-    this.listenTo(this.tweets, 'sync add', this.render);
+    this.listenTo(this.tweets, 'sync add', this.renderTweets);
   },
 
   render: function() {
     var content = this.template({
       users: this.users,
-      tweets: this.tweets,
-      query: this.query
+      querySubject: this.query.split('=')[1]
     });
     
     this.$el.html(content);
-    this.listenForScroll();
+    this.renderTweets();
     return this;
+  },
+  
+  renderTweets: function() {
+    var content = this.tweetsTemplate({ tweets: this.tweets });
+    this.$el.find('.tweets-list').html(content);
+    this.listenForScroll();
   },
 
   unfollow: function(event) {
