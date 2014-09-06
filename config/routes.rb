@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get 'feed', to: 'pages#feed'
     get 'search', to: 'pages#search'
+    get 'mentions', to: 'pages#mentions'
     
     resources :users, only: [:show, :update, :destroy]
     resources :tweets, except: [:index, :new, :edit, :update]

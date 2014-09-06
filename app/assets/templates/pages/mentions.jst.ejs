@@ -1,0 +1,15 @@
+<section class="left-section">
+  <%= JST['pages/user_card']({ user: TwitterClone.currentUser }) %>
+</section>
+
+<section class="center-section">
+  <ul>
+    <li class="search-list-top">
+      <h2>Mentions</h2>
+    </li>
+    
+    <ul class="tweets-list">
+      <%= JST['tweets/tweets']({ tweets: tweets }) %>
+    </ul>
+  </ul>
+</section>

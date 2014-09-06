@@ -7,6 +7,7 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
     'edit': 'currentUserEdit',
+    'mentions': 'currentUserMentions',
     'users/:id': 'userShow',
     'tweets/new': 'tweetNew',
     'tweets/:id': 'tweetShow',
@@ -25,6 +26,22 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+  
+  currentUserMentions: function() {
+    var mentions = new TwitterClone.Subsets.MentionedTweets([], {
+      parentCollection: TwitterClone.tweets
+    });
+    
+    mentions.fetch({
+      success: function(models, response) {
+        var view = new TwitterClone.Views.MentionsShow({
+          collection: models
+        });
+        
+        this._swapView(view);
+      }.bind(this)
+    });
   },
 
   userShow: function(id) {

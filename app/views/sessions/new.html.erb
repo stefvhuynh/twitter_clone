@@ -11,18 +11,21 @@
 
   <form action="<%= session_url %>" method="POST">
     <%= authenticity_token %>
-    <input class="sign-in-textbox"
+    <input class="email-textbox sign-in-textbox"
       type="text"
       name="user[email]"
       placeholder="Email">
 
-    <input class="sign-in-textbox"
+    <input class="password-textbox sign-in-textbox"
       type="password"
       name="user[password]"
       placeholder="Password">
 
     <button class="blue-button">Sign in</button>
-  </form><br>
+  </form>
+  
+  <button class="guest-sign-in-button blue-button">Guest sign in</button>
+  <br>
 
   <a href="/auth/facebook">Sign in with Facebook</a>
 
@@ -39,3 +42,12 @@
   </div>
 </footer>
 
+<script>
+  $(document).ready(function() {
+    $('.guest-sign-in-button').on('click', function(event) {      
+      event.preventDefault();
+      $('.email-textbox').val('charlie@brown.com');
+      $('.password-textbox').val('123456');
+    });
+  });
+</script>

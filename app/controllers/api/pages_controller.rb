@@ -42,5 +42,12 @@ class Api::PagesController < ApplicationController
     @total_pages = @tweets.total_pages
     render :search
   end
+  
+  def mentions
+    @feed = current_user.mentioned_tweets.page(1).per(10)
+    @page_number = 1
+    @total_pages = @feed.total_pages
+    render :feed
+  end
 
 end

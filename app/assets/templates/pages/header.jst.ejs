@@ -2,7 +2,7 @@
   <nav class="clear-fix">
     <ul class="left clear-fix">
       <li><a href="#">Home</a></li>
-      <li><a href="#">Notifications</a></li>
+      <li><a href="#mentions">Notifications</a></li>
       <li><a href="#">Discover</a></li>
       <li><a href="#users/<%= TwitterClone.currentUser.id %>">Me</a></li>
     </ul>
@@ -23,12 +23,6 @@
       <li><a href="#">Messages</a></li>
       <li><a href="#edit">Settings</a></li>
       <li><button id="sign-out-button">Sign out</button></li>
-      <!-- <li>
-        <form action="/session" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <button>Sign out</button>
-        </form>
-      </li> -->
       <li>
         <a id="new-tweet" href="#tweets/new">New Tweet</a>
       </li>
