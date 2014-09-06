@@ -1,4 +1,4 @@
-json.array! @feed do |tweet|
+json.feed @feed do |tweet|
   json.extract! tweet, :id, :user_id, :created_at
   json.display tweet.display
 
@@ -18,4 +18,7 @@ json.array! @feed do |tweet|
     json.avatar_url mentioned_user.avatar
   end
 end
+
+json.page_number @page_number
+json.total_pages @total_pages
 

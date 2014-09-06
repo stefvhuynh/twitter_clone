@@ -1,0 +1,1 @@
+TwitterClone.Subsets.SearchedTweets = Backbone.Subset.extend({});

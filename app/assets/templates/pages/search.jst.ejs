@@ -5,7 +5,9 @@
 <section class="center-section">
   <ul>
     <li class="search-list-top">
-      <h2>Results for <strong><%= decodeURIComponent(query) %></strong></h2>
+      <h2>Results for 
+        <strong> <%= decodeURIComponent(query.split('=')[1]) %></strong>
+      </h2>
       <h5>Top / All</h5>
     </li>
 

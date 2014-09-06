@@ -59,15 +59,17 @@ TwitterClone.Routers.AppRouter = Backbone.Router.extend({
           parse: true
         });
 
-        var tweets = TwitterClone.tweets.add(data.tweets, {
-          merge: true,
+        var tweets = new TwitterClone.Subsets.SearchedTweets(data.tweets, {
+          parentCollection: TwitterClone.tweets,
           parse: true
         });
 
         var view = new TwitterClone.Views.SearchShow({
           users: users,
           tweets: tweets,
-          query: query.split('=')[1]
+          query: query,
+          pageNumber: data.page_number,
+          totalPages: data.total_pages
         });
 
         that._swapView(view);

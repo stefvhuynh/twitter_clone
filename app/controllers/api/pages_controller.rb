@@ -15,6 +15,11 @@ class Api::PagesController < ApplicationController
 
     @feed = user_tweets + followed_tweets
     @feed.sort_by! { |tweet| Time.now - tweet.created_at }
+    
+    @feed = Kaminari.paginate_array(@feed).page(params[:page]).per(10)
+    @page_number = params[:page] || 1
+    @total_pages = @feed.total_pages
+    
     render :feed
   end
 
@@ -31,7 +36,10 @@ class Api::PagesController < ApplicationController
       hashtag = Hashtag.find_by_name(@query[1..-1])
       @tweets = (hashtag.mentioned_tweets + @tweets).uniq unless hashtag.nil?
     end
-
+    
+    @tweets = Kaminari.paginate_array(@tweets).page(params[:page]).per(10)
+    @page_number = params[:page] || 1
+    @total_pages = @tweets.total_pages
     render :search
   end
 

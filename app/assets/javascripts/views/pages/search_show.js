@@ -12,6 +12,10 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
     this.users = options.users;
     this.tweets = options.tweets;
     this.query = options.query;
+    this.pageNumber = options.pageNumber;
+    this.totalPages = options.totalPages;
+    
+    this.listenTo(this.tweets, 'sync add', this.render);
   },
 
   render: function() {
@@ -20,8 +24,9 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
       tweets: this.tweets,
       query: this.query
     });
-
+    
     this.$el.html(content);
+    this.listenForScroll();
     return this;
   },
 
@@ -75,5 +80,30 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
       .removeClass('follow-button')
       .addClass('unfollow-button')
       .html('Following');
+  },
+  
+  listenForScroll: function() {
+    $(window).off('scroll');
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    $(window).on('scroll', throttledCallback);
+  },
+
+  nextPage: function() {
+    var that = this;
+
+    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+      if (this.pageNumber < this.totalPages) {
+        $.ajax({
+          type: 'GET',
+          url: '/api/search?' + this.query,
+          data: { page: this.pageNumber + 1 },
+          dataType: 'json',
+          success: function(data) {
+            that.pageNumber = parseInt(data.page_number);
+            that.tweets.add(data.tweets);
+          }
+        });
+      }
+    }
   }
 });
