@@ -10,7 +10,7 @@ TwitterClone.Views.Home = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.listenTo(TwitterClone.feed, 'sync add remove', this.render);
+    this.listenTo(TwitterClone.feed, 'sync', this.render);
     this.listenTo(TwitterClone.currentUser, 'sync', this.render);
   },
 
@@ -21,6 +21,7 @@ TwitterClone.Views.Home = Backbone.View.extend({
     });
 
     this.$el.html(content);
+    this.listenForScroll();
     return this;
   },
 
@@ -31,6 +32,29 @@ TwitterClone.Views.Home = Backbone.View.extend({
       $('#user-card-new-tweet-form').toggleClass('display-off');
       $('.new-tweet-textbox').val('');
       $('.new-tweet-textbox').focus();
+    }
+  },
+  
+  listenForScroll: function() {
+    $(window).off('scroll');
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 1000);
+    $(window).on('scroll', throttledCallback);
+  },
+
+  nextPage: function() {
+    var that = this;
+
+    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+      if (TwitterClone.feed.pageNumber < TwitterClone.feed.totalPages) {
+        $.ajax({
+          type: 'GET',
+          url: '/api/feed',
+          data: { page: TwitterClone.feed.pageNumber + 1 },
+          success: function(data) {
+            TwitterClone.feed.pageNumber++;
+          }
+        });
+      }
     }
   },
 

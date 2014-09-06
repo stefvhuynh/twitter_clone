@@ -18,7 +18,7 @@ window.TwitterClone = {
 
     TwitterClone.currentUser.fetch({
       success: function(model, response) {
-        TwitterClone.users.add(model);
+        TwitterClone.users.add(TwitterClone.currentUser);
 
         var header = new TwitterClone.Views.Header()
         $('#header').html(header.render().$el);

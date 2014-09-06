@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   before_filter :require_signed_out!, only: [:new, :create]
 
   def show
-    @user = User.includes(
-      tweets: [:mentioned_users, :mentioned_hashtags]
-    ).find(params[:id])
+    @user = User.includes(tweets: :mentioned_users).find(params[:id])
 
     render :show
   end

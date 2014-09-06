@@ -2,8 +2,13 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # FOR INFINITE SCROLL
-    @tweets = User.tweets.includes(:mentioned_users).page(params[:page]).per(10)
+    @tweets = @user.tweets.includes(
+      :mentioned_users,
+      :mentioned_hashtags
+    ).page(params[:page]).per(5)
+    
+    @page_number = params[:page] || 1
+    @total_pages = @tweets.total_pages
     render :show
   end
 

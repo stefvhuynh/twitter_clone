@@ -3,10 +3,10 @@ class Api::PagesController < ApplicationController
   def feed
     user_tweets = current_user.tweets.includes(
       :user,
-      :mentioned_users,
+      :mentioned_users, 
       :mentioned_hashtags
     )
-
+    
     followed_tweets = current_user.followed_tweets.includes(
       :user,
       :mentioned_users,

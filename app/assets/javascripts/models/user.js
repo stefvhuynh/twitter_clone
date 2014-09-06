@@ -55,6 +55,18 @@ TwitterClone.Models.User = Backbone.Model.extend({
       this.followers().set(response.followers, { parse: true });
       delete response.followers;
     }
+    
+    this.tweetCount = parseInt(response.tweet_count);
+    this.followedCount = parseInt(response.followed_count);
+    this.followerCount = parseInt(response.follower_count);
+    this.pageNumber = parseInt(response.page_number);
+    this.totalPages = parseInt(response.total_pages);
+    
+    delete response.tweet_count;
+    delete response.followed_count;
+    delete response.follower_count;
+    delete response.page_number;
+    delete response.total_pages;
 
     return response;
   }

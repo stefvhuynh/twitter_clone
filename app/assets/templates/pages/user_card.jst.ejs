@@ -7,19 +7,19 @@
       <li>
         <a href="#users/<%= user.id %>">
           <small>TWEETS</small>
-          <h3><%= user.tweets().length %></h3>
+          <h3><%= user.tweetCount %></h3>
         </a>
       </li>
       <li>
         <a href="#users/<%= user.id %>">
           <small>FOLLOWING</small>
-          <h3><%= user.followeds().length %></h3>
+          <h3><%= user.followedCount %></h3>
         </a>
       </li>
       <li>
         <a href="#users/<%= user.id %>">
           <small>FOLLOWERS</small>
-          <h3><%= user.followers().length %></h3>
+          <h3><%= user.followerCount %></h3>
         </a>
       </li>
     </ul>

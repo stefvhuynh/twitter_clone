@@ -35,7 +35,11 @@ TwitterClone.Models.Tweet = Backbone.Model.extend({
     }
 
     if (response.user) {
-      this._user = TwitterClone.users.add(response.user, { merge: true });
+      this._user = TwitterClone.users.add(response.user, { 
+        merge: true,
+        parse: true
+      });
+      
       delete response.user;
     }
 

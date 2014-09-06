@@ -23,6 +23,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     this.$subviewEl = this.$el.find('#subview-container');
 
     this.renderTweets();
+    this.listenForScroll();
     return this;
   },
 
@@ -32,7 +33,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
     var subview = new TwitterClone.Views.TweetsIndex({
       collection: this.model.tweets()
     });
-
+    
     this._swapSubview(subview);
   },
 
@@ -108,19 +109,29 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
       .html('<span></span>');
   },
 
-  // listenForScroll: function() {
-//     $(window).off('scroll');
-//     var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
-//     $(window).on('scroll', throttledCallback);
-//   },
-//
-//   nextPage: function() {
-//     var that = this;
-//
-//     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-//       if (this.model.tweets())
-//     }
-//   },
+  listenForScroll: function() {
+    $(window).off('scroll');
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    $(window).on('scroll', throttledCallback);
+  },
+
+  nextPage: function() {
+    var that = this;
+
+    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+      if (this.model.pageNumber < this.model.totalPages) {
+        $.ajax({
+          type: 'GET',
+          url: '/api/users/' + this.model.id,
+          data: { page: this.model.pageNumber + 1 },
+          success: function(data) {
+            that.model.pageNumber = parseInt(data.page_number);
+            that.model.tweets().add(data.tweets);
+          }
+        });
+      }
+    }
+  },
 
   remove: function() {
     this.currentSubview.remove();

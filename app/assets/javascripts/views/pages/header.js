@@ -2,7 +2,8 @@ TwitterClone.Views.Header = Backbone.View.extend({
   template: JST['pages/header'],
 
   events: {
-    'submit #search-form': 'submit'
+    'submit #search-form': 'submit',
+    'click #sign-out-button': 'signOut'
   },
 
   render: function() {
@@ -17,5 +18,19 @@ TwitterClone.Views.Header = Backbone.View.extend({
     Backbone.history.navigate('search?query=' + escape(searchData), {
       trigger: true
     });
+  },
+  
+  signOut: function(event) {
+    event.preventDefault();
+    $.ajax({
+      type: 'DELETE',
+      url: '/session',
+      success: function() {
+        Backbone.history.navigate('');
+        window.location.reload();
+      }
+    });
   }
 });
+
+

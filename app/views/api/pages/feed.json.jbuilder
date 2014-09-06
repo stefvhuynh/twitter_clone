@@ -7,6 +7,10 @@ json.array! @feed do |tweet|
     json.name tweet.user.name
     json.username tweet.user.username
     json.avatar_url tweet.user.avatar
+    
+    json.tweet_count tweet.user.tweets.count
+    json.followed_count tweet.user.followeds.count
+    json.follower_count tweet.user.followers.count
   end
 
   json.mentioned_users tweet.mentioned_users do |mentioned_user|

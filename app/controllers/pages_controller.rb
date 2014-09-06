@@ -6,15 +6,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    user_tweets = current_user.tweets.includes(
-      :mentioned_users,
-      :mentioned_hashtags
-    )
-
-    followed_tweets = current_user.followed_tweets.includes(
-      :mentioned_users,
-      :mentioned_hashtags
-    )
+    user_tweets = current_user.tweets.includes(:mentioned_users)
+    followed_tweets = current_user.followed_tweets.includes(:mentioned_users)
 
     @tweets = user_tweets + followed_tweets
     @tweets.sort_by! { |tweet| Time.now - tweet.created_at }
@@ -22,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def mentions
-    @mentioned_tweets = current_user.mentioned_tweets.order('created_at DESC')
+    @mentioned_tweets = current_user.mentioned_tweets
     render :mentions
   end
 

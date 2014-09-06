@@ -16,6 +16,13 @@ json.tweets @tweets do |tweet|
   end
 end
 
+json.tweet_count @user.tweets.count
+json.followed_count @user.followeds.count
+json.follower_count @user.followers.count
+
+json.page_number @page_number
+json.total_pages @total_pages
+
 # Consider splitting these two out into different ajax calls to limit the
 # amount of data being sent down.
 
