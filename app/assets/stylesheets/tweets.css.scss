@@ -67,7 +67,7 @@
   display: block;
   position: absolute;
   background: #0D70A4;
-  margin-top: 10px;
+  bottom: 10px;
   left: 420px;
   padding: 10px 20px;
   float: right;
@@ -75,6 +75,17 @@
 
 .new-tweet-button.blue-button:hover {
   background: #0F598F;
+}
+
+.character-count {
+  position: absolute;
+  left: 385px;
+  bottom: 22px;
+  color: #777;
+}
+
+.under-count {
+  color: #f22;
 }
 
 // Tweets list

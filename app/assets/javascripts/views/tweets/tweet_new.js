@@ -3,7 +3,8 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
 
   events: {
     'submit form': 'submit',
-    'click .new-tweet-modal-close': 'remove'
+    'click .new-tweet-modal-close': 'remove',
+    'keyup .new-tweet-textbox': 'updateCount'
   },
 
   render: function() {
@@ -19,6 +20,25 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
     TwitterClone.currentUser.tweets().create(tweetData);
 
     this.remove();
+  },
+  
+  updateCount: function(event) {
+    var $countEl = $('.character-count');
+    var count = parseInt($countEl.html());
+    
+    if (event.keyCode === 8) {
+      if (count < 140) count += 1;
+    } else {
+      count -= 1;
+    }
+    
+    $countEl.html(count);
+    
+    if (count < 0) {
+      $countEl.addClass('under-count');
+    } else {
+      $countEl.removeClass('under-count');
+    }
   },
 
   remove: function() {
