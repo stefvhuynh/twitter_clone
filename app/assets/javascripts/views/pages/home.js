@@ -6,6 +6,7 @@ TwitterClone.Views.Home = Backbone.View.extend({
   events: {
     'click #user-card-new-tweet': 'toggleNewTweetForm',
     'blur .new-tweet-textbox': 'toggleNewTweetForm',
+    'keyup .new-tweet-textbox': 'updateCount',
     'submit #user-card-new-tweet-form': 'submit'
   },
 
@@ -32,6 +33,18 @@ TwitterClone.Views.Home = Backbone.View.extend({
       $('#user-card-new-tweet-form').toggleClass('display-off');
       $('.new-tweet-textbox').val('');
       $('.new-tweet-textbox').focus();
+    }
+  },
+  
+  updateCount: function(event) {
+    var $countEl = this.$('.character-count');
+    var count = 140 - $(event.currentTarget).val().length;
+    $countEl.html(count);
+    
+    if (count < 0) {
+      $countEl.addClass('under-count');
+    } else {
+      $countEl.removeClass('under-count');
     }
   },
   

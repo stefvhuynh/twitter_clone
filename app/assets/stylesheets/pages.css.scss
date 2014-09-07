@@ -73,6 +73,10 @@
   cursor: text;
 }
 
+.user-card-footer #user-card-new-tweet-form {
+  position: relative;
+}
+
 .user-card-footer .new-tweet-textbox {
   width: 252px;
 }
@@ -80,6 +84,13 @@
 .user-card-button.new-tweet-button.blue-button {
   position: static;
   float: right;
+  margin-top: 10px;
+}
+
+.user-card-footer .character-count {
+  position: absolute;
+  bottom: 10px;
+  left: 145px;
 }
 
 // User search results

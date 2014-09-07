@@ -23,15 +23,8 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
   },
   
   updateCount: function(event) {
-    var $countEl = $('.character-count');
-    var count = parseInt($countEl.html());
-    
-    if (event.keyCode === 8) {
-      if (count < 140) count += 1;
-    } else {
-      count -= 1;
-    }
-    
+    var $countEl = this.$('.character-count');
+    var count = 140 - $(event.currentTarget).val().length;
     $countEl.html(count);
     
     if (count < 0) {
