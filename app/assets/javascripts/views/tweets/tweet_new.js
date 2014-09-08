@@ -29,8 +29,12 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
     
     if (count < 0) {
       $countEl.addClass('under-count');
+      this.$('.user-card-button').prop('disabled', true);
+    } else if (count === 140) {
+      this.$('.user-card-button').prop('disabled', true);
     } else {
       $countEl.removeClass('under-count');
+      this.$('.user-card-button').prop('disabled', false);
     }
   },
 

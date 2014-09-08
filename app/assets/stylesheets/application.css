@@ -215,7 +215,7 @@ main > .center-section {
 }
 
 .signed-in-header > nav > ul > li {
-  padding: 13px 5px;
+  padding: 13px 10px;
 }
 
 .signed-in-header > nav > .left {
@@ -236,6 +236,82 @@ main > .center-section {
 
 .signed-in-header > nav > .right > li {
   float: left;
+}
+
+.signed-in-header span {
+  opacity: 0.5;
+  display: block;
+  float: left;
+}
+
+.signed-in-header img {
+  margin-top: -4px;
+  height: 26px;
+  opacity: 0.5;
+  float: left;
+}
+
+.signed-in-header a {
+  display: block;
+}
+
+.signed-in-header .icon:hover {
+  border-bottom: 5px solid #246FA4;
+  height: 15px;
+}
+
+.signed-in-header .icon:hover img,
+.signed-in-header .icon:hover span,
+.signed-in-header li:hover img {
+  opacity: 1;
+}
+
+.dropdown-icon:hover {
+  cursor: pointer;
+}
+
+.dropdown-container {
+  position: relative;
+  display: none;
+}
+
+.dropdown {
+  border: 1px solid #ddd;
+  position: absolute;
+  top: 30px;
+  left: -100px;
+  width: 150px;
+  padding: 10px 0;
+  background: #fff;
+}
+
+.dropdown-icon:hover .dropdown-container {
+  display: block;
+}
+
+.dropdown > li > a {
+  padding: 5px 10px;
+  color: #777;
+}
+
+.dropdown > li > a:hover {
+  text-decoration: none;
+  background: #39d;
+  color: #fff;
+} 
+
+.signed-in-header #new-tweet {
+  color: #fff;
+  background: #1570A4;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: -8px;
+  font-weight: bold;
+}
+
+.signed-in-header #new-tweet:hover {
+  text-decoration: none;
+  background: #105F8D;
 }
 
 /* Avatars */

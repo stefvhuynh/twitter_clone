@@ -1,14 +1,29 @@
 <header class="signed-in-header">
   <nav class="clear-fix">
     <ul class="left clear-fix">
-      <li><a href="#">Home</a></li>
-      <li><a href="#mentions">Notifications</a></li>
-      <li><a href="#">Discover</a></li>
-      <li><a href="#users/<%= TwitterClone.currentUser.id %>">Me</a></li>
-    </ul>
-
-    <ul class="center">
-      <li>logo</li>
+      <li class="icon">
+        <a class="clear-fix" href="#">
+          <img src="/images/house.png">
+          <span class="header-text">Home</span>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="clear-fix" href="#mentions">
+          <img src="/images/bell.png">
+          <span class="header-text">Notifications</span>
+        </a>
+      <li class="icon">
+        <a class="clear-fix" href="#">
+          <img src="/images/hashtag.png">
+          <span class="header-text">Discover</span>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="clear-fix" href="#users/<%= TwitterClone.currentUser.id %>">
+          <img src="/images/profile.png">
+          <span class="header-text">Me</span>
+        </a>
+      </li>
     </ul>
 
     <ul class="right clear-fix">
@@ -20,11 +35,23 @@
             placeholder="Search Twitter">
         </form>
       </li>
-      <li><a href="#">Messages</a></li>
-      <li><a href="#edit">Settings</a></li>
-      <li><button id="sign-out-button">Sign out</button></li>
       <li>
-        <a id="new-tweet" href="#tweets/new">New Tweet</a>
+        <a class="clear-fix" href="#">
+          <img src="/images/message.png">
+        </a>
+      </li>
+      <li class="dropdown-icon clear-fix">
+        <img src="/images/gear.png">
+        
+        <div class="dropdown-container">
+          <ul class="dropdown">
+            <li><a href="#edit">Settings</a></li>
+            <li><a id="sign-out-button" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a id="new-tweet" href="#tweets/new">Tweet</a>
       </li>
     </ul>
   </nav>
