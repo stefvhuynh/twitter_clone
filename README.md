@@ -12,7 +12,7 @@ have the search query and all tweets that have the query in the body of the twee
 
 Once users are following other users, their feed is populated with the tweets from these other users, as
 well as their own tweets.  More tweets are loaded when the user scrolls to the bottom. I implemented this 
-infinite scroll, using the [Kaminari gem](https://github.com/amatsuda/kaminari)and some listeners in
+infinite scroll, using the [Kaminari gem](https://github.com/amatsuda/kaminari) and some listeners in
 BackboneJS.
 
 Users can view other users' profiles to view their tweets, who they're following, and who is following them.
