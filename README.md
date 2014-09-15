@@ -23,3 +23,5 @@ I parse the tweets for these symbols and find the matching users and hashtags in
 display the tweets, I add links to the users' show pages. Users can also see all the tweets that mention 
 them in the notifications tab. On the other hand, when users click on the hashtag links, they actually 
 perform a search for that hashtag, much like how the real Twitter does it.
+
+Todo: Add notifications and retweets
