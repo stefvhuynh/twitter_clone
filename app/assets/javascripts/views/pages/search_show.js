@@ -1,6 +1,7 @@
 TwitterClone.Views.SearchShow = Backbone.View.extend({
   template: JST['pages/search'],
   tweetsTemplate: JST['tweets/tweets'],
+  loading: JST['pages/loading'],
   tagName: 'main',
   className: 'search-results clear-fix',
 
@@ -90,7 +91,7 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
   
   listenForScroll: function() {
     $(window).off('scroll');
-    var throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 1000);
     $(window).on('scroll', throttledCallback);
   },
 
@@ -109,6 +110,9 @@ TwitterClone.Views.SearchShow = Backbone.View.extend({
             that.tweets.add(data.tweets);
           }
         });
+        
+        var loading = this.loading();
+        this.$('.tweets-list').after(loading);
       }
     }
   }

@@ -37,7 +37,7 @@ class Api::PagesController < ApplicationController
       @tweets = (hashtag.mentioned_tweets + @tweets).uniq unless hashtag.nil?
     end
     
-    @tweets = Kaminari.paginate_array(@tweets).page(params[:page]).per(10)
+    @tweets = Kaminari.paginate_array(@tweets).page(params[:page]).per(15)
     @page_number = params[:page] || 1
     @total_pages = @tweets.total_pages
     render :search
