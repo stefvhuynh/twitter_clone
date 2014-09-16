@@ -80,10 +80,13 @@ TwitterClone.Views.Home = Backbone.View.extend({
     event.preventDefault();
 
     var tweetData = $(event.target).serializeJSON().tweet;
-    TwitterClone.currentUser.tweets().create(tweetData);
+    var newTweet = TwitterClone.currentUser.tweets().create(tweetData, {
+      success: function(model, response) {
+        TwitterClone.feed.fetch();
+      }
+    });
 
     this.toggleNewTweetForm(event);
-    TwitterClone.feed.fetch();
   }
 });
 
