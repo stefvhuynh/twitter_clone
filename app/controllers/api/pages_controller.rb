@@ -16,7 +16,7 @@ class Api::PagesController < ApplicationController
     @feed = user_tweets + followed_tweets
     @feed.sort_by! { |tweet| Time.now - tweet.created_at }
     
-    @feed = Kaminari.paginate_array(@feed).page(params[:page]).per(10)
+    @feed = Kaminari.paginate_array(@feed).page(params[:page]).per(15)
     @page_number = params[:page] || 1
     @total_pages = @feed.total_pages
     

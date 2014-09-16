@@ -1,5 +1,6 @@
 TwitterClone.Views.TweetNew = Backbone.View.extend({
   template: JST['tweets/new'],
+  loading: JST['pages/loading'],
 
   events: {
     'submit form': 'submit',
@@ -18,7 +19,9 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
 
     var tweetData = $(event.target).serializeJSON().tweet;
     TwitterClone.currentUser.tweets().create(tweetData);
-
+    
+    var loading = this.loading();
+    $('.tweets-list-top').after(loading);
     this.remove();
   },
   

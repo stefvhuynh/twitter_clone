@@ -5,13 +5,13 @@ class Api::UsersController < ApplicationController
     @tweets = @user.tweets.includes(
       :mentioned_users,
       :mentioned_hashtags
-    ).page(params[:page]).per(5)
+    ).page(params[:page]).per(15)
     
     @page_number = params[:page] || 1
     @total_pages = @tweets.total_pages
     render :show
   end
-
+  
   def update
     if current_user.update(user_params)
       @user = current_user

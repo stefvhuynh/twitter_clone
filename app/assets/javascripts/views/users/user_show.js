@@ -1,5 +1,6 @@
 TwitterClone.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
+  loading: JST['pages/loading'],
 
   events: {
     'click #tweets-link': 'renderTweets',
@@ -111,7 +112,7 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
 
   listenForScroll: function() {
     $(window).off('scroll');
-    var throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 1000);
     $(window).on('scroll', throttledCallback);
   },
 
@@ -129,6 +130,9 @@ TwitterClone.Views.UserShow = Backbone.View.extend({
             that.model.tweets().add(data.tweets);
           }
         });
+        
+        var loading = this.loading();
+        this.$('.tweets-list').after(loading);
       }
     }
   },

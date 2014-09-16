@@ -1,5 +1,6 @@
 TwitterClone.Views.Home = Backbone.View.extend({
   template: JST['pages/home'],
+  loading: JST['pages/loading'],
   tagName: 'main',
   className: 'clear-fix',
 
@@ -54,7 +55,7 @@ TwitterClone.Views.Home = Backbone.View.extend({
   
   listenForScroll: function() {
     $(window).off('scroll');
-    var throttledCallback = _.throttle(this.nextPage.bind(this), 500);
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 1000);
     $(window).on('scroll', throttledCallback);
   },
 
@@ -72,6 +73,9 @@ TwitterClone.Views.Home = Backbone.View.extend({
             TwitterClone.feed.add(data.feed);
           }
         });
+        
+        var loading = this.loading();
+        this.$('.tweets-list').after(loading);
       }
     }
   },
@@ -85,6 +89,9 @@ TwitterClone.Views.Home = Backbone.View.extend({
         TwitterClone.feed.fetch();
       }
     });
+    
+    var loading = this.loading();
+    this.$('.tweets-list-top').after(loading);
 
     this.toggleNewTweetForm(event);
   }
