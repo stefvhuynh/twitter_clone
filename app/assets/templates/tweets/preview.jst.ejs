@@ -12,7 +12,7 @@
       </h4>
       <small><%= tweet.escape('created_at') %></small>
 
-      <p><%= tweet.get('display') %></p>
+      <p class="tweet-text"><%= tweet.get('display') %></p>
       <a class="tweet-detail" href="#tweets/<%= tweet.id %>">Details</a>
     </section>
   </article>
