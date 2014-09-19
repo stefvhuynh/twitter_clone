@@ -1,5 +1,5 @@
 json.extract! @tweet, :id, :user_id
-json.created_at @tweet.created_at.strftime('%b %e %I:%M %p')
+json.created_at @tweet.created_at.strftime('%b %e %I:%M %p UTC')
 json.display @tweet.display
 
 json.user do
