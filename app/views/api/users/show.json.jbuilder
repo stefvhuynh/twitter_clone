@@ -7,7 +7,8 @@ end
 
 json.tweets @tweets do |tweet|
 
-  json.extract! tweet, :id, :user_id, :created_at
+  json.extract! tweet, :id, :user_id
+  json.created_at tweet.created_at.strftime('%b %e %I:%M %p')
   json.display tweet.display
 
   json.mentioned_users tweet.mentioned_users do |mentioned_user|
