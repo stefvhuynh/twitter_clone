@@ -18,7 +18,14 @@ TwitterClone.Views.TweetNew = Backbone.View.extend({
     event.preventDefault();
 
     var tweetData = $(event.target).serializeJSON().tweet;
-    TwitterClone.currentUser.tweets().create(tweetData);
+    TwitterClone.currentUser.tweets().create(tweetData, {
+      success: function() {
+        // TwitterClone.feed.fetch();
+        TwitterClone.currentUser.set({ 
+          tweet_count: TwitterClone.currentUser.get('tweet_count') + 1 
+        });
+      }
+    });
     
     var loading = this.loading();
     $('.tweets-list-top').after(loading);

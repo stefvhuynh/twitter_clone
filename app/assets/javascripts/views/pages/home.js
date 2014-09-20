@@ -87,6 +87,9 @@ TwitterClone.Views.Home = Backbone.View.extend({
     var newTweet = TwitterClone.currentUser.tweets().create(tweetData, {
       success: function(model, response) {
         TwitterClone.feed.fetch();
+        TwitterClone.currentUser.set({ 
+          tweet_count: TwitterClone.currentUser.get('tweet_count') + 1 
+        });
       }
     });
     
