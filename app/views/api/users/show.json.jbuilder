@@ -3,6 +3,9 @@ json.avatar_url @user.avatar
 
 if @user == current_user
   json.email @user.email
+  json.tweet_count @user.tweets.count
+  json.followed_count @user.followeds.count
+  json.follower_count @user.followers.count
 end
 
 json.tweets @tweets do |tweet|
@@ -16,10 +19,6 @@ json.tweets @tweets do |tweet|
     json.avatar_url mentioned_user.avatar
   end
 end
-
-json.tweet_count @user.tweets.count
-json.followed_count @user.followeds.count
-json.follower_count @user.followers.count
 
 json.page_number @page_number
 json.total_pages @total_pages

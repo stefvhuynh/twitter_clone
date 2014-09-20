@@ -3,10 +3,6 @@ json.users @users do |user|
   json.name user.name
   json.username user.username
   json.avatar_url user.avatar
-  
-  json.tweet_count user.tweets.count
-  json.followed_count user.followeds.count
-  json.follower_count user.followers.count
 end
 
 json.tweets @tweets do |tweet|
